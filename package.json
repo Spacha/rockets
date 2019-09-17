@@ -1,7 +1,7 @@
 {
   "name": "rockets",
   "version": "1.0.0",
-  "description": "",
+  "description": "Web-app for my rocket engineering notes.",
   "main": "index.js",
   "scripts": {
     "dev": "npm run development",
@@ -10,6 +10,10 @@
     "hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
     "prod": "npm run production",
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://Spacha@github.com/spacha/rockets.git"
   },
   "author": "Miika Sikala",
   "license": "ISC",
@@ -20,5 +24,8 @@
     "sass": "^1.22.12",
     "sass-loader": "^7.3.1",
     "vue-template-compiler": "^2.6.10"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.1"
   }
 }

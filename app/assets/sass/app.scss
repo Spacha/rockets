@@ -1,3 +1,8 @@
+@import "~bootstrap/scss/bootstrap";
+
+$main-font: 'Quicksand', sans-serif;
+
 html, body {
 	background: red;
+	font-family: $main-font;
 }

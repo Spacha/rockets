@@ -1,0 +1,23 @@
+{
+    "name": "spacha/rockets",
+    "description": "Web-app for my rocket engineering notes.",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Miika Sikala",
+            "email": "miikasikala96@gmail.com"
+        }
+    ],
+    "config": {
+        "optimize-autoloader": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Spacha\\Rockets\\": "app/"
+        },
+        "files": [
+            "app/helpers.php"
+        ]
+    },
+    "require": {}
+}

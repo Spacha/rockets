@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Quicksand:400,700);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
@@ -10646,7 +10646,29 @@ a.text-dark:focus {
 
 html,
 body {
-  background: red;
+  background: #fff;
   font-family: "Quicksand", sans-serif;
+}
+
+.navbar-brand {
+  font-size: 1.8em;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 920px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 880px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
 }
 

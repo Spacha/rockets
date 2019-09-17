@@ -1,8 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
 @import "~bootstrap/scss/bootstrap";
 
 $main-font: 'Quicksand', sans-serif;
 
 html, body {
-	background: red;
+	background: #fff;
 	font-family: $main-font;
+}
+
+.navbar-brand {
+	font-size: 1.8em;
+}
+
+
+// Container Customization
+
+.container{
+    //
+}
+
+@media (min-width: 1200px) {
+    .container{
+        max-width: 920px;
+    }
+}
+@media (min-width: 992px) {
+	.container{
+        max-width: 880px;
+    }
+}
+@media (min-width: 768px) {
+	.container{
+        max-width: 720px;
+    }
 }

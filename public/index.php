@@ -19,9 +19,11 @@
 
 		<!-- Styles -->
 		<link rel="stylesheet" href="<?=assetVersion('/css/app.css');?>">
-		<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.css" integrity="sha384-D+9gmBxUQogRLqvARvNLmA9hS2x//eK1FhVb9PiU86gmcrBrJAQT8okdJ4LMp2uv" crossorigin="anonymous"> -->
 
 		<title>Rockets</title>
+
+		<!-- TODO: use webpack! -->
+		<script src="/js/plotly.min.js"></script>
 	</head>
 	<body>
 
@@ -46,15 +48,20 @@
 
 			<section class="mt-5">
 				<h2>2. Definitions and Fundamentals</h2>
+					
+					<section class="concept clearfix">
+						<div style="width: 40%;" class="float-right" id="myDiv"></div>
 
-				<ul>
-					<li>
 						<p><b>Total impulse</b> is the <i>thrust</i> over time, from time t = 0 to t.</p>
-						<p id="ktx-eq--eq2_1"></p>
+						<p class="pl-5" id="ktx-eq--eq2_1"></p>
 
-						For constant thrust and negligibly small start and stop transients <span id="ktx-eq--eq2_2"></span>
-					</li>
-				</ul>
+						<p>For constant thrust and negligibly small start and stop transients, total impulse becomes <span id="ktx-eq--eq2_2"></span>.</p>
+					</section>
+
+					<section class="concept">
+						<p><b>Specific impulse</b> tells how much thrust is created per weigh unit of propellant (mass multiplied by standard gravity).</p>
+						<p class="pl-5" id="ktx-eq--eq2_3"></p>
+					</section>
 
 			</section>
 			

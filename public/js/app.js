@@ -97,6 +97,16 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var katex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! katex */ "./node_modules/katex/dist/katex.js");
 /* harmony import */ var katex__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(katex__WEBPACK_IMPORTED_MODULE_0__);
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["I_s = I_{sp} = \frac{int_{0}^{t} Fdt}{int_{0}^{t} dot{m}dt}"], ["I_s = I_{sp} = \\frac{\\int_{0}^{t} Fdt}{\\int_{0}^{t} \\dot{m}dt}"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject2() {
   var data = _taggedTemplateLiteral(["I_t = Ft"]);
 
@@ -126,7 +136,8 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 */
 
 function renderEq(eq, elementId) {
-  var element = document.querySelector('#' + elementId);
+  var useId = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+  var element = document.querySelector((useId ? '#' : '') + elementId);
   if (!element) return;
   katex__WEBPACK_IMPORTED_MODULE_0___default.a.render(eq, element, {
     throwOnError: false
@@ -135,12 +146,72 @@ function renderEq(eq, elementId) {
 
 var formulae = {
   "eq2_1": String.raw(_templateObject()),
-  "eq2_2": String.raw(_templateObject2())
+  "eq2_2": String.raw(_templateObject2()),
+  "eq2_3": String.raw(_templateObject3())
 }; // TODO: loop automatically or something!
 
 var eqPrefix = 'ktx-eq--';
 renderEq(formulae.eq2_1, eqPrefix + 'eq2_1');
 renderEq(formulae.eq2_2, eqPrefix + 'eq2_2');
+renderEq(formulae.eq2_3, eqPrefix + 'eq2_3');
+var Isp_integral = {
+  type: 'scatter',
+  line: {
+    shape: 'spline',
+    smoothing: 0.6
+  },
+  mode: 'lines',
+  fill: 'toself',
+  x: [0, 2.5, 5, 7.5, 10, 12.5, 15, 17.5, 20],
+  y: [0, 1.5, 1.5, 1.5, 1.5, 0.7, 0.7, 0.3, 0]
+};
+var data = [Isp_integral];
+var layout = {
+  font: {
+    size: 11
+  },
+  margin: {
+    l: 35,
+    r: 15,
+    b: 30,
+    t: 5
+  },
+  height: 220,
+  xaxis: {
+    title: {
+      text: 'time <b>t</b>',
+      font: {
+        size: 11
+      }
+    }
+  },
+  yaxis: {
+    title: {
+      text: 'thrust <b>F</b>',
+      font: {
+        size: 11
+      }
+    }
+  },
+  annotations: [{
+    showarrow: false,
+    text: "I<sub>t</sub>",
+    font: {
+      family: 'KaTeX_Math',
+      size: 20
+    },
+    xref: 'paper',
+    yref: 'paper',
+    x: 0.35,
+    y: 0.5
+  }]
+};
+var config = {
+  staticPlot: true,
+  responsive: true,
+  displaylogo: false
+};
+Plotly.newPlot('myDiv', data, layout, config);
 
 /***/ }),
 

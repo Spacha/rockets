@@ -1,4 +1,4 @@
-// @import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
 @import "~bootstrap/scss/bootstrap";
 @import "~katex/dist/katex";
 
@@ -16,8 +16,17 @@ html, body {
 
 section > h2 {
     margin-bottom: 1.4rem;
+    border-bottom: 1px solid #ccc;
 }
 
+section.concept {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    &:not(:last-child) {
+        // border-bottom: 1px solid #ccc;
+    }
+}
 
 // Container Customization
 

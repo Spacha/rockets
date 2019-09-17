@@ -19,6 +19,7 @@
 
 		<!-- Styles -->
 		<link rel="stylesheet" href="<?=assetVersion('/css/app.css');?>">
+		<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.css" integrity="sha384-D+9gmBxUQogRLqvARvNLmA9hS2x//eK1FhVb9PiU86gmcrBrJAQT8okdJ4LMp2uv" crossorigin="anonymous"> -->
 
 		<title>Rockets</title>
 	</head>
@@ -29,10 +30,10 @@
 			<a class="navbar-brand col-md-2 mr-0" href="#">Rockets</a>
 		</nav>
 
-		<div class="container pt-4">
+		<div class="container">
 
-			<section>
-				<h1>1. Classification</h1>
+			<section class="mt-5">
+				<h2>1. Classification</h2>
 
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -43,10 +44,17 @@
 
 			</section>
 
-			<section>
-				<h1>2. Definitions and Fundamentals</h1>
+			<section class="mt-5">
+				<h2>2. Definitions and Fundamentals</h2>
 
-				<p></p>
+				<ul>
+					<li>
+						<p><b>Total impulse</b> is the <i>thrust</i> over time, from time t = 0 to t.</p>
+						<p id="ktx-eq--eq2_1"></p>
+
+						For constant thrust and negligibly small start and stop transients <span id="ktx-eq--eq2_2"></span>
+					</li>
+				</ul>
 
 			</section>
 			

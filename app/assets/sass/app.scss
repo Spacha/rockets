@@ -1,5 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+// @import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
 @import "~bootstrap/scss/bootstrap";
+@import "~katex/dist/katex";
+
 
 $main-font: 'Quicksand', sans-serif;
 
@@ -10,6 +12,10 @@ html, body {
 
 .navbar-brand {
 	font-size: 1.8em;
+}
+
+section > h2 {
+    margin-bottom: 1.4rem;
 }
 
 

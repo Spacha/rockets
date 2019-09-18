@@ -55,12 +55,18 @@
 						<p><b>Total impulse</b> is the <i>thrust</i> over time, from time t = 0 to t.</p>
 						<p class="pl-5" id="ktx-eq--eq2_1"></p>
 
-						<p>For constant thrust and negligibly small start and stop transients, total impulse becomes <span id="ktx-eq--eq2_2"></span>.</p>
+						<p>For constant thrust and negligibly small start and stop transients, total impulse becomes <span id="ktx-eq--eq2_2"></span>. Units of total and specific impulse are seconds.</p>
 					</section>
 
 					<section class="concept">
 						<p><b>Specific impulse</b> tells how much thrust is created per weigh unit of propellant (mass multiplied by standard gravity).</p>
 						<p class="pl-5" id="ktx-eq--eq2_3"></p>
+
+						<p>Try!</p>
+						<div id="app">
+							<b-alert variant="success" show>Success Alert</b-alert>
+							{{ message }}
+						</div>
 					</section>
 
 			</section>

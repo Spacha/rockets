@@ -1,8 +1,15 @@
+import Vue from 'vue';
+import BootstrapVue from 'bootstrap-vue'
 import katex from 'katex';
+
+Vue.use(BootstrapVue)
 
 /*
 	KaTeX tips:
 	\displaystyle 	Makes integral bigger and nicer! And other operators too: \displaystyle\int
+
+
+	// Html m dot: &#7745
 */
 
 function renderEq(eq, elementId, useId = true) {
@@ -30,13 +37,22 @@ renderEq(formulae.eq2_2, eqPrefix + 'eq2_2');
 renderEq(formulae.eq2_3, eqPrefix + 'eq2_3');
 
 
+var app = new Vue({
+	el: '#app',
+	data: {
+		message: 'Hello Vue!'
+	}
+})
+
+
+
 var Isp_integral = {
-    type: 'scatter',
-    line: {shape: 'spline', smoothing: 0.6},
-    mode: 'lines',
-    fill: 'toself',
-    x: [0, 2.5, 5, 7.5, 10, 12.5, 15, 17.5, 20],
-    y: [0, 1.5, 1.5, 1.5, 1.5, 0.7, 0.7, 0.3, 0],
+  type: 'scatter',
+  line: {shape: 'spline', smoothing: 0.6},
+  mode: 'lines',
+  fill: 'toself',
+  x: [0, 2.5, 5, 7.5, 10, 12.5, 15, 17.5, 20],
+  y: [0, 1.5, 1.5, 1.5, 1.5, 0.7, 0.7, 0.3, 0],
 };
 
 var data = [ Isp_integral ];

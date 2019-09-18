@@ -249,7 +249,6 @@ export default {
 
 		preventScroll(e) {
 			e.preventDefault();
-			console.log('jep')
 		}
 	},
 

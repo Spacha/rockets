@@ -830,7 +830,6 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
     },
     preventScroll: function preventScroll(e) {
       e.preventDefault();
-      console.log('jep');
     }
   },
   created: function created() {//

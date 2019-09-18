@@ -49,13 +49,17 @@
 				<h4>Total impulse:</h4>
 				<p>We can see how total impulse grows with time as well as with thrust. If thrust is set to zero, no matter how long time passes, total impulse is exactly zero.</p>
 
-				<p id="experiment--total-impulse-1"></p>
+				<p class="text-center">
+					<span ref="I_t-realtime-eq"></span>
+				</p>
 			</div>
 		</div>
 	</div>
 </template>
 
 <script>
+import { renderEq } from './../../helpers'
+
 export default {
 
 	// TODO: slider more robust!
@@ -144,7 +148,7 @@ export default {
 			let it = this.totalImpulse.toFixed()
 			let eq = it == 0 ? '=' : '\\approx'
 
-			renderEq(String.raw`I_t = \displaystyle\int_{0}^{${this.time}} Fdt ${eq} ${it} s`, 'experiment--total-impulse-1')
+			renderEq(String.raw`I_t = \displaystyle\int_{0}^{${this.time}} Fdt ${eq} ${it} \operatorname{Ns}`, this.$refs['I_t-realtime-eq'])
 		},
 		
 		toggleTime: function() {

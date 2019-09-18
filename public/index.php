@@ -49,59 +49,81 @@
 			<section class="mt-5">
 				<h2>2. Definitions and Fundamentals</h2>
 					
-					<section class="concept clearfix">
+					<section class="concept">
 						<div class="img-graph" id="myDiv"></div>
 
-						<p><b>Total impulse</b> is the <i>thrust</i> over time, from time t = 0 to t.</p>
-						<p class="pl-5" id="ktx-eq--eq2_1"></p>
+						<p><b>Total impulse <i>I<sub>t</sub></i></b> (Ns) is the <i>thrust</i> over time, from time <span class="text-nowrap">t = 0 to t</span>.</p>
+						<p class="pl-5 ktx-eq--eq2_1"></p>
 
-						<p>For constant thrust and negligibly small start and stop transients, total impulse becomes <span id="ktx-eq--eq2_2"></span>. Units of total and specific impulse are seconds.</p>
+						<p>For constant thrust and negligibly small start and stop transients, total impulse becomes <span class="ktx-eq--eq2_2"></span>.</p>
+
+						<div id="vue-experiment--specific-impulse" class="clearfix-before">
+							<div class="text-center pt-4">
+								<b-button class="mb-4" variant="info" v-b-modal.modal-1>Experiment with <b>I<sub>t</sub></b></b-button>
+							</div>
+
+							<b-modal id="modal-1" title="Total Impulse" size="lg">
+								<template v-slot:modal-footer>
+									<div class="w-100">
+										<b-button
+											variant="primary"
+											size="sm"
+											class="float-right"
+											@click="$bvModal.hide('modal-1')"
+										>
+											Close
+										</b-button>
+									</div>
+								</template>
+								<total-impulse />
+							</b-modal>
+						</div>
 					</section>
 
-					<div id="vue-experiment--specific-impulse">
-						<div class="text-center">
-							<b-button class="mb-4" variant="info" v-b-modal.modal-1>Experiment with <b>I<sub>t</sub></b></b-button>
+					<section class="concept">
+						<p><b>Specific impulse <i>I<sub>s</sub></i></b> tells how much thrust is created per weight unit of propellant (mass multiplied by standard gravity). It tells about certain rocket's or rocket engine's performance in general: "How much do I get thrust from one kg (specifically kg-weight) of propellant?". Hence, larger specific impulse is obviously better. It's similar measure of performance as cars' fuel consumption per 100km.</p>
+						<p class="pl-5 ktx-eq--eq2_3_4"></p>
+						
+						<p>If thrust and mass flow rate are nearly constant during the whole operation, the equation can be simplified as following:</p>
+						<p class="pl-5 ktx-eq--eq2_5"></p>
+
+						<div class="mt-4 mb-3">
+							<!-- TODO: vue component <unit-derivation concept="total-impulse" /> -->
+							<!-- TODO: also remove bottom border and flip the chevron on open /> -->
+							<div class="toggle-unit-derivation">
+								<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#unit-derivation--specific-impulse">
+									Unit derivation [<b>s</b>]
+									<i class="ml-2 fa fa-chevron-down"></i>
+								</button>
+								
+							</div>
+
+							<div class="collapse" id="unit-derivation--specific-impulse">
+								<div class="card card-body">
+									<p>Remember that newton is defined as mass times acceleration or <span class="ktx-eq--newton"></span>.</p>
+									<p class="pl-5 mb-0 ktx-eq--unitI_t"></p>
+								</div>
+							</div>
 						</div>
 
-						<b-modal id="modal-1" title="Total Impulse" size="lg">
-							<template v-slot:modal-footer>
-								<div class="w-100">
-									<b-button
-									variant="primary"
-									size="sm"
-									class="float-right"
-									@click="$bvModal.hide('modal-1')"
-									>
-										Close
-									</b-button>
-								</div>
-							</template>
-
-							<specific-impulse />
-
-						</b-modal>
-					</div>
+					</section>
 
 					<section class="concept">
-						<p><b>Specific impulse</b> tells how much thrust is created per weigh unit of propellant (mass multiplied by standard gravity).</p>
-						<p class="pl-5" id="ktx-eq--eq2_3_4"></p>
-						
-						<p>Also</p>
-						<p class="pl-5" id="ktx-eq--eq2_5"></p>
+						<p><b>Effective exhaust velocity <i>c</i></b> (m/s<sup>2</sup>) is similar measure of performance as specific impulse. It tells how fast the exhaust gas would be flowing out of the nozzle if it was coming out perfectly <i>perpendicularly through the nozzle exit plane.</i> Of course in reality this is never the case, but this gives a good way to measure engine's performance since it tells how much kinetic energy the engine is able to give for it's exhaust gas. It relates closely to specific impulse.</p>
+						<p>Effective exhaust velocity can also be calculated by dividing total thrust by total mass of propellant expelled.</p>
+						<p class="pl-5 ktx-eq--eq2_6"></p>
+					</section>
 
-						<p>Effective exhaust velocity</p>
-						<p class="pl-5" id="ktx-eq--eq2_6"></p>
-
+					<section class="concept">
 						<p>Mass ratio</p>
-						<p class="pl-5" id="ktx-eq--eq2_7"></p>
+						<p class="pl-5 ktx-eq--eq2_7"></p>
 
-						<p>Propellant mass fraction tells something fun! It's represented by lower case zeta.</p>
-						<p class="pl-5" id="ktx-eq--eq2_8_9_10"></p>
+						<p>Propellant mass fraction tells something fun! It's represented by lower case <i>zeta ( &zeta; )</i>.</p>
+						<p class="pl-5 ktx-eq--eq2_8_9_10"></p>
 
 						<p>There's also a fun concept called <i>impulse-to-weight</i> ratio</p>
-						<p class="pl-5" id="ktx-eq--eq2_11"></p>
-						<p class="pl-5" id="ktx-eq--eq2_12"></p>
-						<p class="pl-5" id="ktx-eq--eq2_13"></p>
+						<p class="pl-5 ktx-eq--eq2_11_12"></p>
+						<p class="pl-5 ktx-eq--eq2_13"></p>
 					</section>
 
 			</section>

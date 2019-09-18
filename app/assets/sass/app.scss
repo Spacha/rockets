@@ -15,6 +15,14 @@ html, body {
 	font-size: 1.8em;
 }
 
+.clearfix-before {
+    &::before {
+        display: block;
+        content: "";
+        clear: both;
+    }
+}
+
 section > h2 {
     margin-bottom: 1.4rem;
     border-bottom: 1px solid #ccc;
@@ -97,4 +105,9 @@ section.concept {
     border: 1px solid #9fa6aa;
     border-left: 0;
     border-right: 0;
+}
+
+.toggle-unit-derivation {
+    display: block;
+    border-bottom: 1px solid #eee;
 }

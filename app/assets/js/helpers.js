@@ -1,7 +1,7 @@
 import katex from 'katex'
 
-export const renderEq = (eq, elementId, useId = true) => {
-	var element = document.querySelector((useId ? '#' : '') + elementId)
+export const renderEq = (eq, element, useId = true) => {
+	// var element = document.querySelector((useId ? '#' : '') + elementId)
 
 	if (!element) return
 

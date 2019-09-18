@@ -81,7 +81,7 @@
 					</section>
 
 					<section class="concept">
-						<p><b>Specific impulse <i>I<sub>s</sub></i></b> tells how much thrust is created per weight unit of propellant (mass multiplied by standard gravity). It tells about certain rocket's or rocket engine's performance in general: "How much do I get thrust from one kg (specifically kg-weight) of propellant?". Hence, larger specific impulse is obviously better. It's similar measure of performance as cars' fuel consumption per 100km.</p>
+						<p><b>Specific impulse <i>I<sub>s</sub></i></b> (s) tells how much thrust is created per weight unit of propellant (mass multiplied by standard gravity). It tells about certain rocket's or rocket engine's performance in general: "How much do I get thrust from one kg (specifically kg-weight) of propellant?". Hence, larger specific impulse is obviously better. It's similar measure of performance as cars' fuel consumption per 100km.</p>
 						<p class="pl-5 ktx-eq--eq2_3_4"></p>
 						
 						<p>If thrust and mass flow rate are nearly constant during the whole operation, the equation can be simplified as following:</p>
@@ -115,15 +115,29 @@
 					</section>
 
 					<section class="concept">
-						<p>Mass ratio</p>
+						<p><b>Mass ratio MR</b> is the ratio of vehicle's initial and final mass (after operation). Mass ratio can be applied not only to a vehicle, but also to a particular stage or even to a propulsion system itself.</p>
 						<p class="pl-5 ktx-eq--eq2_7"></p>
+						
+						where
+						<ul>
+							<li><i>m<sub>f</sub></i> = Final mass of the target. Consists of vehicle's inert mass, residual propellant etc.</li>
+							<li><i>m<sub>0</sub></i> = Initial mass of the target. Consists of vehicle's inert mass, loaded propellant tanks etc.</li>
+						</ul>
+					</section>
+					<section class="concept">
+						<p><b>Propellant mass fraction <i>&zeta;</i></b> (lower case <i>zeta</i>) tells how big portion of the vehicle's mass consists of propellant.</p>
 
-						<p>Propellant mass fraction tells something fun! It's represented by lower case <i>zeta ( &zeta; )</i>.</p>
+						<p>Low <i>&zeta;</i> &rarr; very little propellant compared to the vehicle's inert mass (e.g. in cars, where fuel tank is very small).</p>
+						<p>High <i>&zeta;</i> &rarr; very large percentage of the rocket consists of propellant.</p>
 						<p class="pl-5 ktx-eq--eq2_8_9_10"></p>
+						<i>Todo: derivation of the above equations.</i>
+					</section>
 
-						<p>There's also a fun concept called <i>impulse-to-weight</i> ratio</p>
+					<section class="concept">
+						<p><b>Impulse-to-weight ratio <i>I<sub>t</sub>/w<sub>0</sub></i></b> tells how much of an impulse we get in relation to the rocket's initial mass. If we have a light rocket that has a powerful engine (big <i>I<sub>t</sub></i> or lots of kinetic energy transmitted to/from the vehicle and small <i>m<sub>0</sub></i>), we get bigger value &rarr; indication of efficient, good design.</p>
 						<p class="pl-5 ktx-eq--eq2_11_12"></p>
 						<p class="pl-5 ktx-eq--eq2_13"></p>
+						<i>Todo: derivation of the above equations.</i>
 					</section>
 
 			</section>

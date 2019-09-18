@@ -102,8 +102,108 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var katex__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(katex__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _components_ReactiveChart_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/ReactiveChart.vue */ "./app/assets/js/components/ReactiveChart.vue");
 /* harmony import */ var _components_experiment_SpecificImpulse_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/experiment/SpecificImpulse.vue */ "./app/assets/js/components/experiment/SpecificImpulse.vue");
+function _templateObject13() {
+  var data = _taggedTemplateLiteral([""]);
+
+  _templateObject13 = function _templateObject13() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject12() {
+  var data = _taggedTemplateLiteral([""]);
+
+  _templateObject12 = function _templateObject12() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject11() {
+  var data = _taggedTemplateLiteral(["\begin{aligned}displaystyle\frac{I_t}{w_0} &= displaystyle\frac{I_t}{(m_f+m_p)g_0} \\ &= I_s/m_f/m_p + 1 end{aligned}"], ["\\begin{aligned}\\displaystyle\\frac{I_t}{w_0} &= \\displaystyle\\frac{I_t}{(m_f+m_p)g_0} \\\\ &= I_s/m_f/m_p + 1 \\end{aligned}"]);
+
+  _templateObject11 = function _templateObject11() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject10() {
+  var data = _taggedTemplateLiteral(["zeta = m_p/m_0"], ["\\zeta = m_p/m_0"]);
+
+  _templateObject10 = function _templateObject10() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject9() {
+  var data = _taggedTemplateLiteral(["zeta = (m_0-m_f)/m_0 = m_p/(m_p+m_f)"], ["\\zeta = (m_0-m_f)/m_0 = m_p/(m_p+m_f)"]);
+
+  _templateObject9 = function _templateObject9() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject8() {
+  var data = _taggedTemplateLiteral(["zeta = m_p/m_0"], ["\\zeta = m_p/m_0"]);
+
+  _templateObject8 = function _templateObject8() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject7() {
+  var data = _taggedTemplateLiteral(["MR = m_f/m_0"]);
+
+  _templateObject7 = function _templateObject7() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject6() {
+  var data = _taggedTemplateLiteral(["c = I_sg_0 = F/dot{m}"], ["c = I_sg_0 = F/\\dot{m}"]);
+
+  _templateObject6 = function _templateObject6() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject5() {
+  var data = _taggedTemplateLiteral(["\begin{aligned}I_s = F/(dot{m}g_0) &= F/dot{w} \\ I_t/(m_pg_0) &= I_t/wend{aligned}"], ["\\begin{aligned}I_s = F/(\\dot{m}g_0) &= F/\\dot{w} \\\\ I_t/(m_pg_0) &= I_t/w\\end{aligned}"]);
+
+  _templateObject5 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject4() {
+  var data = _taggedTemplateLiteral(["I_s = I_t/(m_pg_0)"]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["I_s = I_{sp} = \frac{int_{0}^{t} Fdt}{int_{0}^{t} dot{m}dt}"], ["I_s = I_{sp} = \\frac{\\int_{0}^{t} Fdt}{\\int_{0}^{t} \\dot{m}dt}"]);
+  var data = _taggedTemplateLiteral(["I_s = I_{sp} = displaystyle\frac{int_{0}^{t} Fdt}{int_{0}^{t} dot{m}dt}"], ["I_s = I_{sp} = \\displaystyle\\frac{\\int_{0}^{t} Fdt}{\\int_{0}^{t} \\dot{m}dt}"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -141,6 +241,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(bootstrap_vue__WEBPACK_IMPORTED_M
 /*
 	KaTeX tips:
 	\displaystyle 	Makes integral bigger and nicer! And other operators too: \displaystyle\int
+									Also works with fractions!
 
 
 	// Html m dot: &#7745
@@ -158,13 +259,34 @@ window.renderEq = function (eq, elementId) {
 var formulae = {
   "eq2_1": String.raw(_templateObject()),
   "eq2_2": String.raw(_templateObject2()),
-  "eq2_3": String.raw(_templateObject3())
+  "eq2_3": String.raw(_templateObject3()),
+  "eq2_4": String.raw(_templateObject4()),
+  "eq2_5": String.raw(_templateObject5()),
+  "eq2_6": String.raw(_templateObject6()),
+  "eq2_7": String.raw(_templateObject7()),
+  // propellant mass fraction
+  "eq2_8": String.raw(_templateObject8()),
+  "eq2_9": String.raw(_templateObject9()),
+  "eq2_10": String.raw(_templateObject10()),
+  "eq2_11": String.raw(_templateObject11()),
+  "eq2_12": String.raw(_templateObject12()),
+  "eq2_13": String.raw(_templateObject13())
 }; // TODO: loop automatically or something!
 
 var eqPrefix = 'ktx-eq--';
 renderEq(formulae.eq2_1, eqPrefix + 'eq2_1');
 renderEq(formulae.eq2_2, eqPrefix + 'eq2_2');
 renderEq(formulae.eq2_3, eqPrefix + 'eq2_3');
+renderEq(formulae.eq2_4, eqPrefix + 'eq2_4');
+renderEq(formulae.eq2_5, eqPrefix + 'eq2_5');
+renderEq(formulae.eq2_6, eqPrefix + 'eq2_6');
+renderEq(formulae.eq2_7, eqPrefix + 'eq2_7');
+renderEq(formulae.eq2_8, eqPrefix + 'eq2_8');
+renderEq(formulae.eq2_9, eqPrefix + 'eq2_9');
+renderEq(formulae.eq2_10, eqPrefix + 'eq2_10');
+renderEq(formulae.eq2_11, eqPrefix + 'eq2_11');
+renderEq(formulae.eq2_12, eqPrefix + 'eq2_12');
+renderEq(formulae.eq2_13, eqPrefix + 'eq2_13');
 /*******************************************
  * 								VueJS
  ******************************************/

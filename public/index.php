@@ -85,9 +85,30 @@
 					<section class="concept">
 						<p><b>Specific impulse</b> tells how much thrust is created per weigh unit of propellant (mass multiplied by standard gravity).</p>
 						<p class="pl-5" id="ktx-eq--eq2_3"></p>
+
+						<p>Also</p>
+						<p class="pl-5" id="ktx-eq--eq2_4"></p>
+						<p class="pl-5" id="ktx-eq--eq2_5"></p>
+
+						<p>Effective exhaust velocity</p>
+						<p class="pl-5" id="ktx-eq--eq2_6"></p>
+
+						<p>Mass ratio</p>
+						<p class="pl-5" id="ktx-eq--eq2_7"></p>
+
+						<p>Propellant mass fraction tells something fun! It's represented by lower case zeta.</p>
+						<p class="pl-5" id="ktx-eq--eq2_8"></p>
+						<p class="pl-5" id="ktx-eq--eq2_9"></p>
+						<p class="pl-5" id="ktx-eq--eq2_10"></p>
+
+						<p>There's also a fun concept called <i>impulse-to-weight</i> ratio</p>
+						<p class="pl-5" id="ktx-eq--eq2_11"></p>
+						<p class="pl-5" id="ktx-eq--eq2_12"></p>
+						<p class="pl-5" id="ktx-eq--eq2_13"></p>
 					</section>
 
 			</section>
+
 
 			<footer class="text-center mt-5 mb-3 text-muted">
 				by Miika Sikala

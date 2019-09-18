@@ -146,14 +146,14 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(bootstrap_vue__WEBPACK_IMPORTED_M
 	// Html m dot: &#7745
 */
 
-function renderEq(eq, elementId) {
+window.renderEq = function (eq, elementId) {
   var useId = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
   var element = document.querySelector((useId ? '#' : '') + elementId);
   if (!element) return;
   katex__WEBPACK_IMPORTED_MODULE_2___default.a.render(eq, element, {
     throwOnError: false
   });
-}
+};
 
 var formulae = {
   "eq2_1": String.raw(_templateObject()),
@@ -412,7 +412,25 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
+    this.$nextTick(function () {
+      window.addEventListener('resize', this.resize); //Init
+      // Couldn't get the real widht without this delay...
+
+      setTimeout(this.resize, 1);
+    });
     Plotly.newPlot(this.$refs[this.chart.uuid], this.chart.data, this.chart.layout, this.chart.config);
+  },
+  methods: {
+    resize: function resize() {
+      var parent = this.$refs[this.chart.uuid].parentElement;
+
+      if (parent && parent.clientWidth) {
+        Plotly.relayout(this.$refs[this.chart.uuid], {
+          width: parent.clientWidth,
+          height: parent.clientHeight
+        });
+      }
+    }
   },
   watch: {
     chart: {
@@ -421,6 +439,9 @@ __webpack_require__.r(__webpack_exports__);
       },
       deep: true
     }
+  },
+  beforeDestroy: function beforeDestroy() {
+    window.removeEventListener('resize', this.resize);
   }
 });
 
@@ -435,6 +456,42 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["I_t = displaystyleint_{0}^{", "} Fdt ", " ", " s"], ["I_t = \\displaystyle\\int_{0}^{", "} Fdt ", " ", " s"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -468,12 +525,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  // TODO: slider more robust!
+  // <slider min="0" max="100" step="0.1" height="100" x="10" y="10" />
   data: function data() {
     return {
       isMove: false,
       sliderYMax: 10,
       sliderYMin: 160,
-      sliderY: 160,
+      sliderY: 130,
       width: 60,
       chart: {
         uuid: 'chart-isp',
@@ -493,37 +552,41 @@ __webpack_require__.r(__webpack_exports__);
             size: 11
           },
           margin: {
-            l: 35,
+            l: 40,
             r: 15,
             b: 30,
             t: 5
           },
           xaxis: {
             title: {
-              text: 'time <b>t</b>',
+              text: 'time <b>t</b> (s)',
               font: {
                 size: 11
               }
             },
-            range: [0, 0],
-            autorange: true
+            range: [0, 1]
           },
           yaxis: {
             title: {
-              text: 'thrust <b>F</b>',
+              text: 'thrust <b>F</b> (N)',
               font: {
                 size: 11
               }
             },
-            range: [0, 1000]
-          }
+            range: [0, 1050]
+          },
+          width: 0.9 * window.innerWidth,
+          height: 0.9 * window.innerHeight
         },
         config: {
           staticPlot: true,
           responsive: true,
           displaylogo: false
         }
-      }
+      },
+      isPlaying: false,
+      timer: null,
+      time: 0
     };
   },
   computed: {
@@ -554,16 +617,45 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
-    addData: function addData(time) {
+    renderEquation: function renderEquation() {
+      var it = this.totalImpulse.toFixed();
+      var eq = it == 0 ? '=' : '\\approx';
+      renderEq(String.raw(_templateObject(), this.time, eq, it), 'experiment--total-impulse-1');
+    },
+    toggleTime: function toggleTime() {
+      var _this = this;
+
+      this.isPlaying = !this.isPlaying;
+
+      if (this.isPlaying) {
+        this.timer = setInterval(function () {
+          _this.time++;
+
+          _this.addData(_this.time, 1000 * _this.sliderVal);
+        }, 1000);
+      } else {
+        clearInterval(this.timer);
+      }
+    },
+    reset: function reset() {
+      var data = this.chart.data[0];
+      data.x = [];
+      data.y = [];
+      this.time = 0; // reset graph to zero (and set axis)
+
+      this.addData(0, 0);
+      this.chart.layout.xaxis.autorange = false;
+      this.chart.layout.xaxis.range = [0, 1];
+    },
+    addData: function addData(time, value) {
       this.chart.layout.datarevision = new Date();
       var data = this.chart.data[0];
-      data.x.push(data.x[data.x.length - 1] + 1); // data.y.push(Math.floor(Math.random() * (100 - 0) ) + 0)
+      data.x.push(time);
+      data.y.push(value); // set autorange to true
 
-      data.y.push(1000 * this.sliderVal); // this is a hack to make the graph follow along
-      // this.chart.layout.xaxis.range = [
-      // 	moment(time * 1000).subtract(10, 'seconds').toDate(),
-      // 	moment(time * 1000).add(0.25, 'seconds').toDate()
-      // ]
+      if (!this.chart.layout.xaxis.autorange) {
+        this.chart.layout.xaxis.autorange = true;
+      }
     },
     mPos: function mPos(canvas, evt) {
       var rect = canvas.getBoundingClientRect();
@@ -617,6 +709,14 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   created: function created() {//
+  },
+  mounted: function mounted() {
+    this.renderEquation();
+  },
+  watch: {
+    totalImpulse: function totalImpulse() {
+      this.renderEquation();
+    }
   }
 });
 
@@ -49781,7 +49881,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { ref: _vm.chart.uuid, style: _vm.size })
+  return _c("div", { ref: _vm.chart.uuid })
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -49807,124 +49907,199 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row" }, [
-      _c(
-        "div",
-        { staticClass: "col text-center" },
-        [
-          _c(
-            "svg",
-            {
-              ref: "canvas",
+      _c("div", { staticClass: "col text-center" }, [
+        _c(
+          "svg",
+          {
+            ref: "canvas",
+            attrs: {
+              xmlns: "http://www.w3.org/2000/svg",
+              width: _vm.width,
+              height: "200"
+            }
+          },
+          [
+            _c("rect", {
               attrs: {
-                xmlns: "http://www.w3.org/2000/svg",
-                width: _vm.width,
-                height: "200"
+                x: "10",
+                y: _vm.sliderYMax,
+                width: "40",
+                height: _vm.sliderYMin - _vm.sliderYMax,
+                fill: "#eee"
               }
-            },
-            [
-              _c("rect", {
-                attrs: {
-                  x: "10",
-                  y: _vm.sliderYMax,
-                  width: "40",
-                  height: _vm.sliderYMin - _vm.sliderYMax,
-                  fill: "#eee"
-                }
-              }),
-              _vm._v(" "),
-              _c("rect", {
-                attrs: {
-                  x: "10",
-                  y: _vm.sliderY,
-                  width: "40",
-                  height: _vm.sliderHeight,
-                  fill: "orange"
-                }
-              }),
-              _vm._v(" "),
+            }),
+            _vm._v(" "),
+            _c("rect", {
+              staticStyle: { fill: "#1f77b4", opacity: "0.5" },
+              attrs: {
+                x: "10",
+                y: _vm.sliderY,
+                width: "40",
+                height: _vm.sliderHeight
+              }
+            }),
+            _vm._v(" "),
+            _c("g", [
               _c(
-                "g",
+                "text",
                 {
-                  on: {
-                    mousedown: function($event) {
-                      return _vm.md($event, 1)
-                    },
-                    touchstart: function($event) {
-                      return _vm.md($event, 1)
-                    }
+                  staticClass: "noselect",
+                  staticStyle: { "font-weight": "bold" },
+                  attrs: {
+                    x: "30",
+                    y: _vm.sliderYMin + 20,
+                    "dominant-baseline": "middle",
+                    "text-anchor": "middle"
                   }
                 },
                 [
-                  _c("circle", {
-                    attrs: { cx: "30", cy: _vm.sliderY, r: "6", fill: "red" }
-                  })
+                  _vm._v(
+                    "\n\t\t\t\t\t\t" +
+                      _vm._s((_vm.sliderVal * 100).toFixed()) +
+                      " %\n\t\t\t\t\t"
+                  )
                 ]
               ),
               _vm._v(" "),
-              _c("g", [
+              _c(
+                "text",
+                {
+                  staticClass: "noselect",
+                  staticStyle: {
+                    "writing-mode": "tb",
+                    "font-weight": "bold",
+                    fill: "#fff",
+                    "pointer-events": "none"
+                  },
+                  attrs: {
+                    x: "30",
+                    y: (_vm.sliderYMin - _vm.sliderYMax) / 2 + _vm.sliderYMax,
+                    "dominant-baseline": "middle",
+                    "text-anchor": "middle"
+                  }
+                },
+                [_vm._v("\n\t\t\t\t\t\tTHRUST\n\t\t\t\t\t")]
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "g",
+              {
+                on: {
+                  mousedown: function($event) {
+                    return _vm.md($event, 1)
+                  },
+                  touchstart: function($event) {
+                    return _vm.md($event, 1)
+                  }
+                }
+              },
+              [
+                _c("circle", {
+                  attrs: { cx: "30", cy: _vm.sliderY, r: "6", fill: "red" }
+                })
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "input-group mb-3 d-flex justify-content-center" },
+          [
+            _c(
+              "div",
+              { staticClass: "input-group-prepend" },
+              [
                 _c(
-                  "text",
+                  "b-button",
                   {
-                    staticClass: "noselect",
-                    staticStyle: { "font-weight": "bold" },
-                    attrs: {
-                      x: "30",
-                      y: _vm.sliderYMin + 20,
-                      "dominant-baseline": "middle",
-                      "text-anchor": "middle"
+                    attrs: { variant: _vm.isPlaying ? "danger" : "success" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.toggleTime($event)
+                      }
                     }
                   },
                   [
-                    _vm._v(
-                      "\n\t\t\t\t\t\t" +
-                        _vm._s((_vm.sliderVal * 100).toFixed()) +
-                        " %\n\t\t\t\t\t"
-                    )
+                    _c("i", {
+                      staticClass: "fa",
+                      class: {
+                        "fa-pause": _vm.isPlaying,
+                        "fa-play": !_vm.isPlaying
+                      }
+                    })
                   ]
                 )
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", [
-            _c("span", { staticStyle: { "font-size": "1.2rem" } }, [
-              _vm._v(_vm._s(_vm.totalImpulse.toFixed()) + " s")
-            ])
-          ]),
-          _vm._v(" "),
-          _c(
-            "b-button",
-            {
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  return _vm.addData($event)
-                }
-              }
-            },
-            [_vm._v("Add data")]
-          )
-        ],
-        1
-      ),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "input-group-div" }, [
+              _vm._v(_vm._s(_vm.time) + " s")
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "input-group-append" },
+              [
+                _c(
+                  "b-button",
+                  {
+                    class: { disabled: _vm.time == 0 },
+                    attrs: { variant: "dark" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.reset($event)
+                      }
+                    }
+                  },
+                  [_c("i", { staticClass: "fa fa-step-backward" })]
+                )
+              ],
+              1
+            )
+          ]
+        )
+      ]),
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "col col-10" },
-        [
-          _c("reactive-chart", {
-            attrs: {
-              chart: _vm.chart,
-              size: { height: "300px", width: "600px" }
-            }
-          })
-        ],
+        { staticClass: "col col-lg-9", staticStyle: { height: "254px" } },
+        [_c("reactive-chart", { attrs: { chart: _vm.chart } })],
         1
       )
-    ])
+    ]),
+    _vm._v(" "),
+    _vm._m(0)
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        { staticClass: "mt-3 experiment-results", attrs: { id: "paska" } },
+        [
+          _c("h4", [_vm._v("Total impulse:")]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "We can see how total impulse grows with time as well as with thrust. If thrust is set to zero, no matter how long time passes, total impulse is exactly zero."
+            )
+          ]),
+          _vm._v(" "),
+          _c("p", { attrs: { id: "experiment--total-impulse-1" } })
+        ]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 

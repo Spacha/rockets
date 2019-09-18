@@ -1,6 +1,6 @@
 <template>
 
-	<div :style="size" :ref="chart.uuid"></div>
+	<div :ref="chart.uuid"></div>
 
 </template>
 
@@ -11,7 +11,16 @@ export default {
 	data: () => ({
 		//
 	}),
+
 	mounted() {
+		this.$nextTick(function() {
+			window.addEventListener('resize', this.resize);
+
+			//Init
+			// Couldn't get the real widht without this delay...
+			setTimeout(this.resize, 1);
+		})
+
 		Plotly.newPlot(
 			this.$refs[this.chart.uuid],
 			this.chart.data,
@@ -19,6 +28,20 @@ export default {
 			this.chart.config
 		);
 	},
+
+	methods: {
+		resize() {
+			var parent = this.$refs[this.chart.uuid].parentElement;
+
+			if (parent && parent.clientWidth) {
+				Plotly.relayout(this.$refs[this.chart.uuid], {
+					width: parent.clientWidth,
+					height: parent.clientHeight
+				})
+			}
+		}
+	},
+
 	watch: {
 		chart: {
 			handler() {
@@ -31,6 +54,10 @@ export default {
 			},
 			deep: true
 		}
+	},
+
+	beforeDestroy() {
+		window.removeEventListener('resize', this.resize);
 	}
 }
 

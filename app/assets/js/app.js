@@ -12,7 +12,7 @@ Vue.use(BootstrapVue)
 	// Html m dot: &#7745
 */
 
-function renderEq(eq, elementId, useId = true) {
+window.renderEq = function(eq, elementId, useId = true) {
 	var element = document.querySelector((useId ? '#' : '') + elementId)
 
 	if (!element) return;

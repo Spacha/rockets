@@ -14234,9 +14234,20 @@ section.concept {
   }
 }
 
+.img-graph {
+  float: none;
+  width: 100%;
+  justify-content: center;
+}
+
 @media (min-width: 768px) {
   .container {
     max-width: 720px;
+  }
+
+  .img-graph {
+    float: right;
+    width: 40%;
   }
 }
 
@@ -14257,5 +14268,27 @@ section.concept {
   user-select: none;
   /* Non-prefixed version, currently
      supported by Chrome and Opera */
+}
+
+.experiment-results {
+  background: #e8f2ff;
+  border: 1px solid #69aaff;
+  border-radius: 4px;
+  display: block;
+  width: 100%;
+  padding: 1rem;
+}
+
+.input-group-div {
+  display: inline-block;
+  width: 60px;
+  vertical-align: middle;
+  line-height: 1.5;
+  padding: 0.375rem 0;
+  color: #666;
+  background: #eee;
+  border: 1px solid #9fa6aa;
+  border-left: 0;
+  border-right: 0;
 }
 

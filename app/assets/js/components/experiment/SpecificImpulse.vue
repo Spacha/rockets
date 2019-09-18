@@ -6,25 +6,49 @@
 					<!-- <rect :width="width" height="200" fill="#eee"/> -->
 					<rect x="10" :y="sliderYMax" width="40" :height="sliderYMin-sliderYMax" fill="#eee" />
 
-					<rect x="10" :y="sliderY" width="40" :height="sliderHeight" fill="orange" />
-
-					<g @mousedown="md($event, 1)" @touchstart="md($event, 1)">
-						<circle cx="30" :cy="sliderY" r="6" fill="red" />
-					</g>
+					<rect x="10" :y="sliderY" width="40" :height="sliderHeight" style="fill: #1f77b4; opacity: 0.5;" />
 
 					<g>
 						<text x="30" :y="sliderYMin+20" dominant-baseline="middle" text-anchor="middle" class="noselect" style="font-weight: bold;">
 							{{ (sliderVal*100).toFixed() }} %
 						</text>
+						<text x="30" :y="(sliderYMin-sliderYMax)/2+sliderYMax" dominant-baseline="middle" text-anchor="middle" class="noselect" style="writing-mode: tb; font-weight: bold; fill: #fff; pointer-events: none;">
+							THRUST
+						</text>
+					</g>
+
+					<g @mousedown="md($event, 1)" @touchstart="md($event, 1)">
+						<circle cx="30" :cy="sliderY" r="6" fill="red" />
 					</g>
 				</svg>
-				<!-- <div>{{ (sliderVal*100).toFixed() }} %</div> -->
-				<div><span style="font-size: 1.2rem;">{{ totalImpulse.toFixed() }} s</span></div>
 
-				<b-button @click.prevent="addData">Add data</b-button>
+				<div class="input-group mb-3 d-flex justify-content-center">
+					<div class="input-group-prepend">
+						<b-button @click.prevent="toggleTime" :variant="isPlaying ? 'danger' : 'success'">
+							<i class="fa" :class="{'fa-pause': isPlaying, 'fa-play': !isPlaying}"></i>
+						</b-button>
+					</div>
+
+					<div class="input-group-div">{{ time }} s</div>
+
+					<div class="input-group-append" >
+						<b-button @click.prevent="reset" :variant="'dark'" :class="{'disabled': time == 0}">
+							<i class="fa fa-step-backward"></i>
+						</b-button>
+					</div>
+				</div>
+
 			</div>
-			<div class="col col-10">
-				<reactive-chart :chart="chart" :size="{height: '300px', width: '600px'}"/>
+			<div class="col col-lg-9" style="height: 254px">
+				<reactive-chart :chart="chart" />
+			</div>
+		</div>
+		<div class="row">
+			<div class="mt-3 experiment-results" id="paska">
+				<h4>Total impulse:</h4>
+				<p>We can see how total impulse grows with time as well as with thrust. If thrust is set to zero, no matter how long time passes, total impulse is exactly zero.</p>
+
+				<p id="experiment--total-impulse-1"></p>
 			</div>
 		</div>
 	</div>
@@ -32,11 +56,14 @@
 
 <script>
 export default {
+
+	// TODO: slider more robust!
+	// <slider min="0" max="100" step="0.1" height="100" x="10" y="10" />
 	data: () => ({
 		isMove: false,
 		sliderYMax: 10,
 		sliderYMin: 160,
-		sliderY: 160,
+		sliderY: 130,
 		width: 60,
 
 		chart: {
@@ -51,16 +78,17 @@ export default {
 			}],
 			layout: {
 				font: {size: 11},
-				margin: {l: 35, r: 15, b: 30, t: 5},
+				margin: {l: 40, r: 15, b: 30, t: 5},
 				xaxis: {
-					title: {text: 'time <b>t</b>', font: {size: 11}},
-					range: [0, 0],
-					autorange: true
+					title: {text: 'time <b>t</b> (s)', font: {size: 11}},
+					range: [0, 1],
 				},
 				yaxis: {
-					title: {text: 'thrust <b>F</b>', font: {size: 11}},
-					range: [0, 1000]
+					title: {text: 'thrust <b>F</b> (N)', font: {size: 11}},
+					range: [0, 1050]
 				},
+				width: 0.9 * window.innerWidth,
+  				height: 0.9 * window.innerHeight
 			},
 			config: {
 				staticPlot: true,
@@ -68,6 +96,10 @@ export default {
 				displaylogo: false
 			}
 		},
+
+		isPlaying: false,
+		timer: null,
+		time: 0
 	}),
 
 	computed: {
@@ -106,19 +138,53 @@ export default {
 	},
 
 	methods: {
-		addData: function(time) {
+
+		renderEquation: function() {
+			let it = this.totalImpulse.toFixed();
+			let eq = it == 0 ? '=' : '\\approx';
+
+			renderEq(String.raw`I_t = \displaystyle\int_{0}^{${this.time}} Fdt ${eq} ${it} s`, 'experiment--total-impulse-1');
+		},
+		
+		toggleTime: function() {
+			this.isPlaying = !this.isPlaying;
+
+			if (this.isPlaying) {
+				this.timer = setInterval( () => {
+					this.time++;
+
+					this.addData(this.time, 1000 * this.sliderVal);
+
+				}, 1000 )
+			} else {
+				clearInterval(this.timer)
+			}
+		},
+
+		reset: function() {
+			var data = this.chart.data[0];
+			data.x = [];
+			data.y = [];
+
+			this.time = 0;
+
+			// reset graph to zero (and set axis)
+			this.addData(0, 0)
+			this.chart.layout.xaxis.autorange = false
+			this.chart.layout.xaxis.range = [0, 1]
+		},
+
+		addData: function(time, value) {
 			this.chart.layout.datarevision = new Date()
 
 			var data = this.chart.data[0];
-			data.x.push(data.x[data.x.length-1] + 1)
-			// data.y.push(Math.floor(Math.random() * (100 - 0) ) + 0)
-			data.y.push(1000 * this.sliderVal)
+			data.x.push(time)
+			data.y.push(value)
 
-			// this is a hack to make the graph follow along
-			// this.chart.layout.xaxis.range = [
-			// 	moment(time * 1000).subtract(10, 'seconds').toDate(),
-			// 	moment(time * 1000).add(0.25, 'seconds').toDate()
-			// ]
+			// set autorange to true
+			if (!this.chart.layout.xaxis.autorange) {
+				this.chart.layout.xaxis.autorange = true;
+			}
 		},
 
 		mPos(canvas, evt) {
@@ -181,6 +247,16 @@ export default {
 
 	created() {
 		//
+  	},
+
+  	mounted() {
+  		this.renderEquation();
+  	},
+
+  	watch: {
+  		totalImpulse: function() {
+			this.renderEquation();
+		}
   	}
 };
 </script>

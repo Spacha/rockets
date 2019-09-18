@@ -50,7 +50,7 @@
 				<h2>2. Definitions and Fundamentals</h2>
 					
 					<section class="concept clearfix">
-						<div style="width: 40%;" class="float-right" id="myDiv"></div>
+						<div class="img-graph" id="myDiv"></div>
 
 						<p><b>Total impulse</b> is the <i>thrust</i> over time, from time t = 0 to t.</p>
 						<p class="pl-5" id="ktx-eq--eq2_1"></p>
@@ -58,17 +58,33 @@
 						<p>For constant thrust and negligibly small start and stop transients, total impulse becomes <span id="ktx-eq--eq2_2"></span>. Units of total and specific impulse are seconds.</p>
 					</section>
 
+					<div id="vue-experiment--specific-impulse">
+						<div class="text-center">
+							<b-button class="mb-4" variant="info" v-b-modal.modal-1>Experiment with <b>I<sub>t</sub></b></b-button>
+						</div>
+
+						<b-modal id="modal-1" title="Total Impulse" size="lg">
+							<template v-slot:modal-footer>
+								<div class="w-100">
+									<b-button
+									variant="primary"
+									size="sm"
+									class="float-right"
+									@click="$bvModal.hide('modal-1')"
+									>
+										Close
+									</b-button>
+								</div>
+							</template>
+
+							<specific-impulse />
+
+						</b-modal>
+					</div>
+
 					<section class="concept">
 						<p><b>Specific impulse</b> tells how much thrust is created per weigh unit of propellant (mass multiplied by standard gravity).</p>
 						<p class="pl-5" id="ktx-eq--eq2_3"></p>
-
-						<div id="vue-experiment--specific-impulse">
-							<b-button v-b-modal.modal-1>Experiment with I<sub>t</sub></b-button>
-
-							<b-modal id="modal-1" title="Total Impulse" size="lg">
-								<specific-impulse />
-							</b-modal>
-						</div>
 					</section>
 
 			</section>

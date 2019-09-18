@@ -808,9 +808,16 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
     // Mouse Move
     mm: function mm(ev) {
       var mPos = this.mPos(this.$refs['canvas'], ev);
-
+      this.handleCursorMove(mPos);
+    },
+    // Touch Move
+    tm: function tm(ev) {
+      var tPos = this.mPos(this.$refs['canvas'], ev.touches[0]);
+      this.handleCursorMove(tPos);
+    },
+    handleCursorMove: function handleCursorMove(cPos) {
       if (this.isMove) {
-        this.sliderY = mPos.y;
+        this.sliderY = cPos.y;
 
         if (this.sliderY > this.sliderYMin) {
           this.sliderY = this.sliderYMin;
@@ -821,24 +828,26 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
         }
       }
     },
-    // Touch Move
-    tm: function tm(ev) {
-      var tPos = this.mPos(this.$refs['canvas'], ev.touches[0]);
-
-      if (this.isMove) {
-        this.sliderY = tPos.y;
-      }
+    preventScroll: function preventScroll(e) {
+      e.preventDefault();
+      console.log('jep');
     }
   },
   created: function created() {//
   },
   mounted: function mounted() {
     this.renderEquation();
+    this.$refs['canvas'].addEventListener('touchmove', this.preventScroll, {
+      passive: false
+    });
   },
   watch: {
     totalImpulse: function totalImpulse() {
       this.renderEquation();
     }
+  },
+  beforeDestroy: function beforeDestroy() {
+    window.removeEventListener('touchmove', this.preventScroll);
   }
 });
 
@@ -50189,7 +50198,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "col col-lg-9", staticStyle: { height: "254px" } },
+        { staticClass: "col col-lg-9 px-0", staticStyle: { height: "254px" } },
         [_c("reactive-chart", { attrs: { chart: _vm.chart } })],
         1
       )
@@ -50204,21 +50213,17 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
-      _c(
-        "div",
-        { staticClass: "mt-3 experiment-results", attrs: { id: "paska" } },
-        [
-          _c("h4", [_vm._v("Total impulse:")]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "We can see how total impulse grows with time as well as with thrust. If thrust is set to zero, no matter how long time passes, total impulse is exactly zero."
-            )
-          ]),
-          _vm._v(" "),
-          _c("p", { attrs: { id: "experiment--total-impulse-1" } })
-        ]
-      )
+      _c("div", { staticClass: "mt-3 experiment-results" }, [
+        _c("h4", [_vm._v("Total impulse:")]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "We can see how total impulse grows with time as well as with thrust. If thrust is set to zero, no matter how long time passes, total impulse is exactly zero."
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { attrs: { id: "experiment--total-impulse-1" } })
+      ])
     ])
   }
 ]

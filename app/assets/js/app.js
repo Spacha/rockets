@@ -1,66 +1,37 @@
 import Vue from 'vue';
 import BootstrapVue from 'bootstrap-vue'
-import katex from 'katex';
+
+import { getEquations } from './vars/equations'
+import { renderEq } from './helpers'
 
 Vue.use(BootstrapVue)
 
-/*
-	KaTeX tips:
-	\displaystyle 	Makes integral bigger and nicer! And other operators too: \displaystyle\int
-									Also works with fractions!
 
-
-	// Html m dot: &#7745
-*/
-
-window.renderEq = function(eq, elementId, useId = true) {
-	var element = document.querySelector((useId ? '#' : '') + elementId)
-
-	if (!element) return;
-
-	katex.render(eq, element, {
-	    throwOnError: false
-	});
-}
-
-var formulae = {
-	"eq2_1": String.raw`I_t = \displaystyle\int_{0}^{t} Fdt`,
-	"eq2_2": String.raw`I_t = Ft`,
-
-	"eq2_3": String.raw`I_s = I_{sp} = \displaystyle\frac{\int_{0}^{t} Fdt}{\int_{0}^{t} \dot{m}dt}`,
-
-	"eq2_4": String.raw`I_s = I_t/(m_pg_0)`,
-	"eq2_5": String.raw`\begin{aligned}I_s = F/(\dot{m}g_0) &= F/\dot{w} \\ I_t/(m_pg_0) &= I_t/w\end{aligned}`,
-	"eq2_6": String.raw`c = I_sg_0 = F/\dot{m}`,
-	"eq2_7": String.raw`MR = m_f/m_0`,
-
-	// propellant mass fraction
-	"eq2_8": String.raw`\zeta = m_p/m_0`,
-	"eq2_9": String.raw`\zeta = (m_0-m_f)/m_0 = m_p/(m_p+m_f)`,
-	"eq2_10": String.raw`\zeta = m_p/m_0`,
-
-	"eq2_11": String.raw`\begin{aligned}\displaystyle\frac{I_t}{w_0} &= \displaystyle\frac{I_t}{(m_f+m_p)g_0} \\ &= I_s/m_f/m_p + 1 \end{aligned}`,
-	"eq2_12": String.raw``,
-	"eq2_13": String.raw``,
-
-}
-
+// RENDER EQUATIONS
 // TODO: loop automatically or something!
+
+var eqs = getEquations()
 var eqPrefix = 'ktx-eq--';
 
-renderEq(formulae.eq2_1, eqPrefix + 'eq2_1');
-renderEq(formulae.eq2_2, eqPrefix + 'eq2_2');
-renderEq(formulae.eq2_3, eqPrefix + 'eq2_3');
-renderEq(formulae.eq2_4, eqPrefix + 'eq2_4');
-renderEq(formulae.eq2_5, eqPrefix + 'eq2_5');
-renderEq(formulae.eq2_6, eqPrefix + 'eq2_6');
-renderEq(formulae.eq2_7, eqPrefix + 'eq2_7');
-renderEq(formulae.eq2_8, eqPrefix + 'eq2_8');
-renderEq(formulae.eq2_9, eqPrefix + 'eq2_9');
-renderEq(formulae.eq2_10, eqPrefix + 'eq2_10');
-renderEq(formulae.eq2_11, eqPrefix + 'eq2_11');
-renderEq(formulae.eq2_12, eqPrefix + 'eq2_12');
-renderEq(formulae.eq2_13, eqPrefix + 'eq2_13');
+renderEq(eqs.eq2_1, eqPrefix + 'eq2_1');
+renderEq(eqs.eq2_2, eqPrefix + 'eq2_2');
+renderEq(eqs.eq2_3_4, eqPrefix + 'eq2_3_4');
+// renderEq(eqs.eq2_4, eqPrefix + 'eq2_4');
+renderEq(eqs.eq2_5, eqPrefix + 'eq2_5');
+renderEq(eqs.eq2_6, eqPrefix + 'eq2_6');
+renderEq(eqs.eq2_7, eqPrefix + 'eq2_7');
+renderEq(eqs.eq2_8_9_10, eqPrefix + 'eq2_8_9_10');
+// renderEq(eqs.eq2_9, eqPrefix + 'eq2_9');
+// renderEq(eqs.eq2_10, eqPrefix + 'eq2_10');
+renderEq(eqs.eq2_11_12, eqPrefix + 'eq2_11_12');
+renderEq(eqs.eq2_13, eqPrefix + 'eq2_13');
+renderEq(eqs.eq2_14, eqPrefix + 'eq2_14');
+renderEq(eqs.eq2_15, eqPrefix + 'eq2_15');
+renderEq(eqs.eq2_16, eqPrefix + 'eq2_16');
+renderEq(eqs.eq2_17, eqPrefix + 'eq2_17');
+renderEq(eqs.eq2_18, eqPrefix + 'eq2_18');
+renderEq(eqs.eq2_19, eqPrefix + 'eq2_19');
+renderEq(eqs.eq2_20, eqPrefix + 'eq2_20');
 
 
 /*******************************************

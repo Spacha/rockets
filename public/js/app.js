@@ -98,203 +98,46 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var bootstrap_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap-vue */ "./node_modules/bootstrap-vue/esm/index.js");
-/* harmony import */ var katex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! katex */ "./node_modules/katex/dist/katex.js");
-/* harmony import */ var katex__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(katex__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _components_ReactiveChart_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/ReactiveChart.vue */ "./app/assets/js/components/ReactiveChart.vue");
-/* harmony import */ var _components_experiment_SpecificImpulse_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/experiment/SpecificImpulse.vue */ "./app/assets/js/components/experiment/SpecificImpulse.vue");
-function _templateObject13() {
-  var data = _taggedTemplateLiteral([""]);
-
-  _templateObject13 = function _templateObject13() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject12() {
-  var data = _taggedTemplateLiteral([""]);
-
-  _templateObject12 = function _templateObject12() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject11() {
-  var data = _taggedTemplateLiteral(["\begin{aligned}displaystyle\frac{I_t}{w_0} &= displaystyle\frac{I_t}{(m_f+m_p)g_0} \\ &= I_s/m_f/m_p + 1 end{aligned}"], ["\\begin{aligned}\\displaystyle\\frac{I_t}{w_0} &= \\displaystyle\\frac{I_t}{(m_f+m_p)g_0} \\\\ &= I_s/m_f/m_p + 1 \\end{aligned}"]);
-
-  _templateObject11 = function _templateObject11() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject10() {
-  var data = _taggedTemplateLiteral(["zeta = m_p/m_0"], ["\\zeta = m_p/m_0"]);
-
-  _templateObject10 = function _templateObject10() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject9() {
-  var data = _taggedTemplateLiteral(["zeta = (m_0-m_f)/m_0 = m_p/(m_p+m_f)"], ["\\zeta = (m_0-m_f)/m_0 = m_p/(m_p+m_f)"]);
-
-  _templateObject9 = function _templateObject9() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject8() {
-  var data = _taggedTemplateLiteral(["zeta = m_p/m_0"], ["\\zeta = m_p/m_0"]);
-
-  _templateObject8 = function _templateObject8() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject7() {
-  var data = _taggedTemplateLiteral(["MR = m_f/m_0"]);
-
-  _templateObject7 = function _templateObject7() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject6() {
-  var data = _taggedTemplateLiteral(["c = I_sg_0 = F/dot{m}"], ["c = I_sg_0 = F/\\dot{m}"]);
-
-  _templateObject6 = function _templateObject6() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject5() {
-  var data = _taggedTemplateLiteral(["\begin{aligned}I_s = F/(dot{m}g_0) &= F/dot{w} \\ I_t/(m_pg_0) &= I_t/wend{aligned}"], ["\\begin{aligned}I_s = F/(\\dot{m}g_0) &= F/\\dot{w} \\\\ I_t/(m_pg_0) &= I_t/w\\end{aligned}"]);
-
-  _templateObject5 = function _templateObject5() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject4() {
-  var data = _taggedTemplateLiteral(["I_s = I_t/(m_pg_0)"]);
-
-  _templateObject4 = function _templateObject4() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject3() {
-  var data = _taggedTemplateLiteral(["I_s = I_{sp} = displaystyle\frac{int_{0}^{t} Fdt}{int_{0}^{t} dot{m}dt}"], ["I_s = I_{sp} = \\displaystyle\\frac{\\int_{0}^{t} Fdt}{\\int_{0}^{t} \\dot{m}dt}"]);
-
-  _templateObject3 = function _templateObject3() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject2() {
-  var data = _taggedTemplateLiteral(["I_t = Ft"]);
-
-  _templateObject2 = function _templateObject2() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject() {
-  var data = _taggedTemplateLiteral(["I_t = displaystyleint_{0}^{t} Fdt"], ["I_t = \\displaystyle\\int_{0}^{t} Fdt"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+/* harmony import */ var _vars_equations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./vars/equations */ "./app/assets/js/vars/equations.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./helpers */ "./app/assets/js/helpers.js");
+/* harmony import */ var _components_ReactiveChart_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/ReactiveChart.vue */ "./app/assets/js/components/ReactiveChart.vue");
+/* harmony import */ var _components_experiment_SpecificImpulse_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/experiment/SpecificImpulse.vue */ "./app/assets/js/components/experiment/SpecificImpulse.vue");
 
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_1__["default"]);
-/*
-	KaTeX tips:
-	\displaystyle 	Makes integral bigger and nicer! And other operators too: \displaystyle\int
-									Also works with fractions!
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_1__["default"]); // RENDER EQUATIONS
+// TODO: loop automatically or something!
 
-
-	// Html m dot: &#7745
-*/
-
-window.renderEq = function (eq, elementId) {
-  var useId = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-  var element = document.querySelector((useId ? '#' : '') + elementId);
-  if (!element) return;
-  katex__WEBPACK_IMPORTED_MODULE_2___default.a.render(eq, element, {
-    throwOnError: false
-  });
-};
-
-var formulae = {
-  "eq2_1": String.raw(_templateObject()),
-  "eq2_2": String.raw(_templateObject2()),
-  "eq2_3": String.raw(_templateObject3()),
-  "eq2_4": String.raw(_templateObject4()),
-  "eq2_5": String.raw(_templateObject5()),
-  "eq2_6": String.raw(_templateObject6()),
-  "eq2_7": String.raw(_templateObject7()),
-  // propellant mass fraction
-  "eq2_8": String.raw(_templateObject8()),
-  "eq2_9": String.raw(_templateObject9()),
-  "eq2_10": String.raw(_templateObject10()),
-  "eq2_11": String.raw(_templateObject11()),
-  "eq2_12": String.raw(_templateObject12()),
-  "eq2_13": String.raw(_templateObject13())
-}; // TODO: loop automatically or something!
-
+var eqs = Object(_vars_equations__WEBPACK_IMPORTED_MODULE_2__["getEquations"])();
 var eqPrefix = 'ktx-eq--';
-renderEq(formulae.eq2_1, eqPrefix + 'eq2_1');
-renderEq(formulae.eq2_2, eqPrefix + 'eq2_2');
-renderEq(formulae.eq2_3, eqPrefix + 'eq2_3');
-renderEq(formulae.eq2_4, eqPrefix + 'eq2_4');
-renderEq(formulae.eq2_5, eqPrefix + 'eq2_5');
-renderEq(formulae.eq2_6, eqPrefix + 'eq2_6');
-renderEq(formulae.eq2_7, eqPrefix + 'eq2_7');
-renderEq(formulae.eq2_8, eqPrefix + 'eq2_8');
-renderEq(formulae.eq2_9, eqPrefix + 'eq2_9');
-renderEq(formulae.eq2_10, eqPrefix + 'eq2_10');
-renderEq(formulae.eq2_11, eqPrefix + 'eq2_11');
-renderEq(formulae.eq2_12, eqPrefix + 'eq2_12');
-renderEq(formulae.eq2_13, eqPrefix + 'eq2_13');
+Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["renderEq"])(eqs.eq2_1, eqPrefix + 'eq2_1');
+Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["renderEq"])(eqs.eq2_2, eqPrefix + 'eq2_2');
+Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["renderEq"])(eqs.eq2_3_4, eqPrefix + 'eq2_3_4'); // renderEq(eqs.eq2_4, eqPrefix + 'eq2_4');
+
+Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["renderEq"])(eqs.eq2_5, eqPrefix + 'eq2_5');
+Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["renderEq"])(eqs.eq2_6, eqPrefix + 'eq2_6');
+Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["renderEq"])(eqs.eq2_7, eqPrefix + 'eq2_7');
+Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["renderEq"])(eqs.eq2_8_9_10, eqPrefix + 'eq2_8_9_10'); // renderEq(eqs.eq2_9, eqPrefix + 'eq2_9');
+// renderEq(eqs.eq2_10, eqPrefix + 'eq2_10');
+
+Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["renderEq"])(eqs.eq2_11_12, eqPrefix + 'eq2_11_12');
+Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["renderEq"])(eqs.eq2_13, eqPrefix + 'eq2_13');
+Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["renderEq"])(eqs.eq2_14, eqPrefix + 'eq2_14');
+Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["renderEq"])(eqs.eq2_15, eqPrefix + 'eq2_15');
+Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["renderEq"])(eqs.eq2_16, eqPrefix + 'eq2_16');
+Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["renderEq"])(eqs.eq2_17, eqPrefix + 'eq2_17');
+Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["renderEq"])(eqs.eq2_18, eqPrefix + 'eq2_18');
+Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["renderEq"])(eqs.eq2_19, eqPrefix + 'eq2_19');
+Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["renderEq"])(eqs.eq2_20, eqPrefix + 'eq2_20');
 /*******************************************
  * 								VueJS
  ******************************************/
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ReactiveChart', _components_ReactiveChart_vue__WEBPACK_IMPORTED_MODULE_3__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('SpecificImpulse', _components_experiment_SpecificImpulse_vue__WEBPACK_IMPORTED_MODULE_4__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ReactiveChart', _components_ReactiveChart_vue__WEBPACK_IMPORTED_MODULE_4__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('SpecificImpulse', _components_experiment_SpecificImpulse_vue__WEBPACK_IMPORTED_MODULE_5__["default"]);
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#vue-experiment--specific-impulse'
 });
@@ -501,6 +344,240 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./app/assets/js/helpers.js":
+/*!**********************************!*\
+  !*** ./app/assets/js/helpers.js ***!
+  \**********************************/
+/*! exports provided: renderEq */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "renderEq", function() { return renderEq; });
+/* harmony import */ var katex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! katex */ "./node_modules/katex/dist/katex.js");
+/* harmony import */ var katex__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(katex__WEBPACK_IMPORTED_MODULE_0__);
+
+var renderEq = function renderEq(eq, elementId) {
+  var useId = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+  var element = document.querySelector((useId ? '#' : '') + elementId);
+  if (!element) return; // manipulate equation
+
+  eq = eq.replace(/  +/g, ' '); // removes line breaks and multiple whitespaces
+
+  katex__WEBPACK_IMPORTED_MODULE_0___default.a.render(eq, element, {
+    throwOnError: false
+  });
+};
+
+/***/ }),
+
+/***/ "./app/assets/js/vars/equations.js":
+/*!*****************************************!*\
+  !*** ./app/assets/js/vars/equations.js ***!
+  \*****************************************/
+/*! exports provided: getEquations */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getEquations", function() { return getEquations; });
+function _templateObject17() {
+  var data = _taggedTemplateLiteral([""]);
+
+  _templateObject17 = function _templateObject17() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject16() {
+  var data = _taggedTemplateLiteral([""]);
+
+  _templateObject16 = function _templateObject16() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject15() {
+  var data = _taggedTemplateLiteral([""]);
+
+  _templateObject15 = function _templateObject15() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject14() {
+  var data = _taggedTemplateLiteral([""]);
+
+  _templateObject14 = function _templateObject14() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject13() {
+  var data = _taggedTemplateLiteral([""]);
+
+  _templateObject13 = function _templateObject13() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject12() {
+  var data = _taggedTemplateLiteral([""]);
+
+  _templateObject12 = function _templateObject12() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject11() {
+  var data = _taggedTemplateLiteral([""]);
+
+  _templateObject11 = function _templateObject11() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject10() {
+  var data = _taggedTemplateLiteral([""]);
+
+  _templateObject10 = function _templateObject10() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject9() {
+  var data = _taggedTemplateLiteral(["\begin{aligned}displaystyle\frac{I_t}{w_0} &= displaystyle\frac{I_t}{(m_f+m_p)g_0} \\ &= displaystyle\frac{I_s}{m_f/m_p + 1} end{aligned}"], ["\\begin{aligned}\\displaystyle\\frac{I_t}{w_0} &= \\displaystyle\\frac{I_t}{(m_f+m_p)g_0} \\\\ &= \\displaystyle\\frac{I_s}{m_f/m_p + 1} \\end{aligned}"]);
+
+  _templateObject9 = function _templateObject9() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject8() {
+  var data = _taggedTemplateLiteral(["\n\t\begin{aligned}\n\t\tzeta &= m_p/m_0 \\ zeta &= (m_0-m_f)/m_0 = m_p/(m_p+m_f) \\ m_0 &= m_p + m_f\n\tend{aligned}"], ["\n\t\\begin{aligned}\n\t\t\\zeta &= m_p/m_0 \\\\ \\zeta &= (m_0-m_f)/m_0 = m_p/(m_p+m_f) \\\\ m_0 &= m_p + m_f\n\t\\end{aligned}"]);
+
+  _templateObject8 = function _templateObject8() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject7() {
+  var data = _taggedTemplateLiteral(["MR = m_f/m_0"]);
+
+  _templateObject7 = function _templateObject7() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject6() {
+  var data = _taggedTemplateLiteral(["c = I_sg_0 = F/dot{m}"], ["c = I_sg_0 = F/\\dot{m}"]);
+
+  _templateObject6 = function _templateObject6() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject5() {
+  var data = _taggedTemplateLiteral(["I_s = F/(dot{m}g_0) = F/dot{w} = I_t/w"], ["I_s = F/(\\dot{m}g_0) = F/\\dot{w} = I_t/w"]);
+
+  _templateObject5 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject4() {
+  var data = _taggedTemplateLiteral(["I_s = I_t/(m_pg_0)"]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["\n\t\tI_s = I_{sp} = displaystyle \frac{int_{0}^{t} Fdt}{g_0int_{0}^{t} dot{m}dt} = displaystyle \frac{I_t}{m_pg_0}\n\t"], ["\n\t\tI_s = I_{sp} = \\displaystyle \\frac{\\int_{0}^{t} Fdt}{g_0\\int_{0}^{t} \\dot{m}dt} = \\displaystyle \\frac{I_t}{m_pg_0}\n\t"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["I_t = Ft"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["I_t = displaystyleint_{0}^{t} Fdt"], ["I_t = \\displaystyle\\int_{0}^{t} Fdt"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var getEquations = function getEquations() {
+  return {
+    "eq2_1": String.raw(_templateObject()),
+    "eq2_2": String.raw(_templateObject2()),
+    "eq2_3_4": String.raw(_templateObject3()),
+    "eq2_4": String.raw(_templateObject4()),
+    "eq2_5": String.raw(_templateObject5()),
+    "eq2_6": String.raw(_templateObject6()),
+    "eq2_7": String.raw(_templateObject7()),
+    // propellant mass fraction
+    "eq2_8_9_10": String.raw(_templateObject8()),
+    "eq2_11_12": String.raw(_templateObject9()),
+    "eq2_13": String.raw(_templateObject10()),
+    "eq2_14": String.raw(_templateObject11()),
+    "eq2_15": String.raw(_templateObject12()),
+    "eq2_16": String.raw(_templateObject13()),
+    "eq2_17": String.raw(_templateObject14()),
+    "eq2_18": String.raw(_templateObject15()),
+    "eq2_19": String.raw(_templateObject16()),
+    "eq2_20": String.raw(_templateObject17())
+  };
+};
+
+/***/ }),
+
 /***/ "./app/assets/sass/app.scss":
 /*!**********************************!*\
   !*** ./app/assets/sass/app.scss ***!
@@ -590,6 +667,7 @@ function _templateObject() {
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
+//
 //
 //
 //
@@ -50125,8 +50203,16 @@ var render = function() {
                 }
               },
               [
-                _c("circle", {
-                  attrs: { cx: "30", cy: _vm.sliderY, r: "6", fill: "red" }
+                _c("rect", {
+                  attrs: {
+                    x: "9",
+                    y: _vm.sliderY - 9,
+                    width: "42",
+                    height: "18",
+                    rx: "4",
+                    ry: "4",
+                    fill: "#4871a7"
+                  }
                 })
               ]
             )

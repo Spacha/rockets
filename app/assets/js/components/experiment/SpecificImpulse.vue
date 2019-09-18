@@ -18,7 +18,8 @@
 					</g>
 
 					<g @mousedown="md($event, 1)" @touchstart="md($event, 1)">
-						<circle cx="30" :cy="sliderY" r="6" fill="red" />
+						<!-- <circle cx="30" :cy="sliderY" r="6" fill="red" /> -->
+						<rect x="9" :y="sliderY-9" width="42" height="18" rx="4" ry="4" fill="#4871a7" />
 					</g>
 				</svg>
 

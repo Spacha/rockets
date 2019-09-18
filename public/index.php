@@ -48,6 +48,8 @@
 
 			<section class="mt-5">
 				<h2>2. Definitions and Fundamentals</h2>
+
+					<h3>2.1 Definitions</h3>
 					
 					<section class="concept">
 						<div class="img-graph" id="myDiv"></div>
@@ -135,9 +137,18 @@
 
 					<section class="concept">
 						<p><b>Impulse-to-weight ratio <i>I<sub>t</sub>/w<sub>0</sub></i></b> tells how much of an impulse we get in relation to the rocket's initial mass. If we have a light rocket that has a powerful engine (big <i>I<sub>t</sub></i> or lots of kinetic energy transmitted to/from the vehicle and small <i>m<sub>0</sub></i>), we get bigger value &rarr; indication of efficient, good design.</p>
-						<p class="pl-5 ktx-eq--eq2_11_12"></p>
-						<p class="pl-5 ktx-eq--eq2_13"></p>
+						<p class="pl-5 ktx-eq--eq2_11"></p>
 						<i>Todo: derivation of the above equations.</i>
+					</section>
+
+					<h3>2.2 Thrust</h3>
+
+					<section class="concept">
+						<p>Thrust tells how fast the vehicle/engine is able to change momentum (add/remove kinetic energy).</p>
+						<p class="pl-5 ktx-eq--eq2_12"></p>
+						<p>As we see from the equation, thrust tells how much vehicle's velocity changed over time t (taking vehicle's mass into account). Other way around, the heavier the vehicle, the more thrust it requires to change the velocity, let's say, 1m/s.</p>
+						<p>When we are at sea level, we usually assume that the pressure ratio (see later) is zero so that the pressure at nozzle exit equals the environment pressure. This means that all the propellant mass that goes in the engine through the injector, comes out of the other side with higher velocity. This velocity is <i>v<sub>2</sub></i> and the amount of mass injected into the engine (and ejected out of the nozzle) is <i>&#7745;</i>.</p>
+						<p>This equation applies only when the nozzle exit pressure matches outside pressure, so we'll need to extend this a little bit by adding pressure force to the equation.</p>
 					</section>
 
 			</section>

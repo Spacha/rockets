@@ -17,7 +17,8 @@ export const getEquations = () => ({
 		\zeta &= m_p/m_0 \\ \zeta &= (m_0-m_f)/m_0 = m_p/(m_p+m_f) \\ m_0 &= m_p + m_f
 	\end{aligned}`,
 
-	"eq2_11_12": String.raw`\begin{aligned}\displaystyle\frac{I_t}{w_0} &= \displaystyle\frac{I_t}{(m_f+m_p)g_0} \\ &= \displaystyle\frac{I_s}{m_f/m_p + 1} \end{aligned}`,
+	"eq2_11": String.raw`\begin{aligned}\displaystyle\frac{I_t}{w_0} &= \displaystyle\frac{I_t}{(m_f+m_p)g_0} \\ &= \displaystyle\frac{I_s}{m_f/m_p + 1} \end{aligned}`,
+	"eq2_12": String.raw`F = \displaystyle \frac{d(mv_2)}{dt} = \dot{m}v_2 \text{ at sea level} = \frac{\dot{w}}{g_0}v_2`,
 	"eq2_13": String.raw``,
 	"eq2_14": String.raw``,
 	"eq2_15": String.raw``,

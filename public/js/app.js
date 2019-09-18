@@ -419,6 +419,16 @@ var renderEq = function renderEq(eq, element) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getEquations", function() { return getEquations; });
+function _templateObject18() {
+  var data = _taggedTemplateLiteral([""]);
+
+  _templateObject18 = function _templateObject18() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject17() {
   var data = _taggedTemplateLiteral([""]);
 
@@ -490,7 +500,7 @@ function _templateObject11() {
 }
 
 function _templateObject10() {
-  var data = _taggedTemplateLiteral([""]);
+  var data = _taggedTemplateLiteral(["F = displaystyle \frac{d(mv_2)}{dt} = dot{m}v_2 \text{ at sea level} = \frac{dot{w}}{g_0}v_2"], ["F = \\displaystyle \\frac{d(mv_2)}{dt} = \\dot{m}v_2 \\text{ at sea level} = \\frac{\\dot{w}}{g_0}v_2"]);
 
   _templateObject10 = function _templateObject10() {
     return data;
@@ -602,15 +612,16 @@ var getEquations = function getEquations() {
     "eq2_7": String.raw(_templateObject7()),
     // propellant mass fraction
     "eq2_8_9_10": String.raw(_templateObject8()),
-    "eq2_11_12": String.raw(_templateObject9()),
-    "eq2_13": String.raw(_templateObject10()),
-    "eq2_14": String.raw(_templateObject11()),
-    "eq2_15": String.raw(_templateObject12()),
-    "eq2_16": String.raw(_templateObject13()),
-    "eq2_17": String.raw(_templateObject14()),
-    "eq2_18": String.raw(_templateObject15()),
-    "eq2_19": String.raw(_templateObject16()),
-    "eq2_20": String.raw(_templateObject17())
+    "eq2_11": String.raw(_templateObject9()),
+    "eq2_12": String.raw(_templateObject10()),
+    "eq2_13": String.raw(_templateObject11()),
+    "eq2_14": String.raw(_templateObject12()),
+    "eq2_15": String.raw(_templateObject13()),
+    "eq2_16": String.raw(_templateObject14()),
+    "eq2_17": String.raw(_templateObject15()),
+    "eq2_18": String.raw(_templateObject16()),
+    "eq2_19": String.raw(_templateObject17()),
+    "eq2_20": String.raw(_templateObject18())
   };
 };
 

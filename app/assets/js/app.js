@@ -37,20 +37,30 @@ renderEq(formulae.eq2_2, eqPrefix + 'eq2_2');
 renderEq(formulae.eq2_3, eqPrefix + 'eq2_3');
 
 
+/*******************************************
+ * 								VueJS
+ ******************************************/
+
+import ReactiveChart from './components/ReactiveChart.vue'
+import SpecificImpulse from './components/experiment/SpecificImpulse.vue'
+
+Vue.component('ReactiveChart', ReactiveChart)
+Vue.component('SpecificImpulse', SpecificImpulse)
+
 var app = new Vue({
-	el: '#app',
-	data: {
-		message: 'Hello Vue!'
-	}
+	el: '#vue-experiment--specific-impulse'
 })
 
 
+/*******************************************
+ * 								Graphs
+ ******************************************/
 
 var Isp_integral = {
   type: 'scatter',
   line: {shape: 'spline', smoothing: 0.6},
   mode: 'lines',
-  fill: 'toself',
+  fill: 'tozeroy',
   x: [0, 2.5, 5, 7.5, 10, 12.5, 15, 17.5, 20],
   y: [0, 1.5, 1.5, 1.5, 1.5, 0.7, 0.7, 0.3, 0],
 };

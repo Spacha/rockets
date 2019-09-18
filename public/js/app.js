@@ -100,6 +100,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var bootstrap_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap-vue */ "./node_modules/bootstrap-vue/esm/index.js");
 /* harmony import */ var katex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! katex */ "./node_modules/katex/dist/katex.js");
 /* harmony import */ var katex__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(katex__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_ReactiveChart_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/ReactiveChart.vue */ "./app/assets/js/components/ReactiveChart.vue");
+/* harmony import */ var _components_experiment_SpecificImpulse_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/experiment/SpecificImpulse.vue */ "./app/assets/js/components/experiment/SpecificImpulse.vue");
 function _templateObject3() {
   var data = _taggedTemplateLiteral(["I_s = I_{sp} = \frac{int_{0}^{t} Fdt}{int_{0}^{t} dot{m}dt}"], ["I_s = I_{sp} = \\frac{\\int_{0}^{t} Fdt}{\\int_{0}^{t} \\dot{m}dt}"]);
 
@@ -163,12 +165,21 @@ var eqPrefix = 'ktx-eq--';
 renderEq(formulae.eq2_1, eqPrefix + 'eq2_1');
 renderEq(formulae.eq2_2, eqPrefix + 'eq2_2');
 renderEq(formulae.eq2_3, eqPrefix + 'eq2_3');
+/*******************************************
+ * 								VueJS
+ ******************************************/
+
+
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ReactiveChart', _components_ReactiveChart_vue__WEBPACK_IMPORTED_MODULE_3__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('SpecificImpulse', _components_experiment_SpecificImpulse_vue__WEBPACK_IMPORTED_MODULE_4__["default"]);
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
-  el: '#app',
-  data: {
-    message: 'Hello Vue!'
-  }
+  el: '#vue-experiment--specific-impulse'
 });
+/*******************************************
+ * 								Graphs
+ ******************************************/
+
 var Isp_integral = {
   type: 'scatter',
   line: {
@@ -176,7 +187,7 @@ var Isp_integral = {
     smoothing: 0.6
   },
   mode: 'lines',
-  fill: 'toself',
+  fill: 'tozeroy',
   x: [0, 2.5, 5, 7.5, 10, 12.5, 15, 17.5, 20],
   y: [0, 1.5, 1.5, 1.5, 1.5, 0.7, 0.7, 0.3, 0]
 };
@@ -230,6 +241,144 @@ Plotly.newPlot('myDiv', data, layout, config);
 
 /***/ }),
 
+/***/ "./app/assets/js/components/ReactiveChart.vue":
+/*!****************************************************!*\
+  !*** ./app/assets/js/components/ReactiveChart.vue ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ReactiveChart_vue_vue_type_template_id_38262e42___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ReactiveChart.vue?vue&type=template&id=38262e42& */ "./app/assets/js/components/ReactiveChart.vue?vue&type=template&id=38262e42&");
+/* harmony import */ var _ReactiveChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ReactiveChart.vue?vue&type=script&lang=js& */ "./app/assets/js/components/ReactiveChart.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ReactiveChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ReactiveChart_vue_vue_type_template_id_38262e42___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ReactiveChart_vue_vue_type_template_id_38262e42___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "app/assets/js/components/ReactiveChart.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./app/assets/js/components/ReactiveChart.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./app/assets/js/components/ReactiveChart.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ReactiveChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ReactiveChart.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./app/assets/js/components/ReactiveChart.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ReactiveChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./app/assets/js/components/ReactiveChart.vue?vue&type=template&id=38262e42&":
+/*!***********************************************************************************!*\
+  !*** ./app/assets/js/components/ReactiveChart.vue?vue&type=template&id=38262e42& ***!
+  \***********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ReactiveChart_vue_vue_type_template_id_38262e42___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./ReactiveChart.vue?vue&type=template&id=38262e42& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./app/assets/js/components/ReactiveChart.vue?vue&type=template&id=38262e42&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ReactiveChart_vue_vue_type_template_id_38262e42___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ReactiveChart_vue_vue_type_template_id_38262e42___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./app/assets/js/components/experiment/SpecificImpulse.vue":
+/*!*****************************************************************!*\
+  !*** ./app/assets/js/components/experiment/SpecificImpulse.vue ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SpecificImpulse_vue_vue_type_template_id_e9ec34f8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SpecificImpulse.vue?vue&type=template&id=e9ec34f8& */ "./app/assets/js/components/experiment/SpecificImpulse.vue?vue&type=template&id=e9ec34f8&");
+/* harmony import */ var _SpecificImpulse_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SpecificImpulse.vue?vue&type=script&lang=js& */ "./app/assets/js/components/experiment/SpecificImpulse.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _SpecificImpulse_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _SpecificImpulse_vue_vue_type_template_id_e9ec34f8___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _SpecificImpulse_vue_vue_type_template_id_e9ec34f8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "app/assets/js/components/experiment/SpecificImpulse.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./app/assets/js/components/experiment/SpecificImpulse.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************!*\
+  !*** ./app/assets/js/components/experiment/SpecificImpulse.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SpecificImpulse_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./SpecificImpulse.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./app/assets/js/components/experiment/SpecificImpulse.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SpecificImpulse_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./app/assets/js/components/experiment/SpecificImpulse.vue?vue&type=template&id=e9ec34f8&":
+/*!************************************************************************************************!*\
+  !*** ./app/assets/js/components/experiment/SpecificImpulse.vue?vue&type=template&id=e9ec34f8& ***!
+  \************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SpecificImpulse_vue_vue_type_template_id_e9ec34f8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./SpecificImpulse.vue?vue&type=template&id=e9ec34f8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./app/assets/js/components/experiment/SpecificImpulse.vue?vue&type=template&id=e9ec34f8&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SpecificImpulse_vue_vue_type_template_id_e9ec34f8___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SpecificImpulse_vue_vue_type_template_id_e9ec34f8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./app/assets/sass/app.scss":
 /*!**********************************!*\
   !*** ./app/assets/sass/app.scss ***!
@@ -238,6 +387,238 @@ Plotly.newPlot('myDiv', data, layout, config);
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./app/assets/js/components/ReactiveChart.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./app/assets/js/components/ReactiveChart.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['chart', 'size'],
+  data: function data() {
+    return {//
+    };
+  },
+  mounted: function mounted() {
+    Plotly.newPlot(this.$refs[this.chart.uuid], this.chart.data, this.chart.layout, this.chart.config);
+  },
+  watch: {
+    chart: {
+      handler: function handler() {
+        Plotly.react(this.$refs[this.chart.uuid], this.chart.data, this.chart.layout, this.chart.config);
+      },
+      deep: true
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./app/assets/js/components/experiment/SpecificImpulse.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./app/assets/js/components/experiment/SpecificImpulse.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      isMove: false,
+      sliderYMax: 10,
+      sliderYMin: 160,
+      sliderY: 160,
+      width: 60,
+      chart: {
+        uuid: 'chart-isp',
+        data: [{
+          type: 'scatter',
+          line: {
+            shape: 'spline',
+            smoothing: 0.6
+          },
+          mode: 'lines',
+          fill: 'tozeroy',
+          x: [0],
+          y: [0]
+        }],
+        layout: {
+          font: {
+            size: 11
+          },
+          margin: {
+            l: 35,
+            r: 15,
+            b: 30,
+            t: 5
+          },
+          xaxis: {
+            title: {
+              text: 'time <b>t</b>',
+              font: {
+                size: 11
+              }
+            },
+            range: [0, 0],
+            autorange: true
+          },
+          yaxis: {
+            title: {
+              text: 'thrust <b>F</b>',
+              font: {
+                size: 11
+              }
+            },
+            range: [0, 1000]
+          }
+        },
+        config: {
+          staticPlot: true,
+          responsive: true,
+          displaylogo: false
+        }
+      }
+    };
+  },
+  computed: {
+    sliderHeight: function sliderHeight() {
+      return this.sliderY < this.sliderYMin ? this.sliderYMin - this.sliderY : 0;
+    },
+    rectX: function rectX() {
+      return this.x < this.xPart2 ? this.x : this.xPart2;
+    },
+    sliderVal: function sliderVal() {
+      return 1 - (this.sliderY - this.sliderYMax) / (this.sliderYMin - this.sliderYMax);
+    },
+    totalImpulse: function totalImpulse() {
+      var it = 0;
+      var trace = this.chart.data[0]; // if only one data entry, total impulse is always 0
+
+      if (trace.x.length > 1) {
+        for (var i = 1; i < trace.x.length; i++) {
+          // area of a square + triangle on top
+          // (x * y) + 1/2 * delta-X * delta-Y
+          var dX = Math.abs(trace.x[i - 1] - trace.x[i]);
+          var dY = Math.abs(trace.y[i - 1] - trace.y[i]);
+          it += Math.min(trace.y[i - 1], trace.y[i]) * dX + 0.5 * dX * dY;
+        }
+      }
+
+      return it;
+    }
+  },
+  methods: {
+    addData: function addData(time) {
+      this.chart.layout.datarevision = new Date();
+      var data = this.chart.data[0];
+      data.x.push(data.x[data.x.length - 1] + 1); // data.y.push(Math.floor(Math.random() * (100 - 0) ) + 0)
+
+      data.y.push(1000 * this.sliderVal); // this is a hack to make the graph follow along
+      // this.chart.layout.xaxis.range = [
+      // 	moment(time * 1000).subtract(10, 'seconds').toDate(),
+      // 	moment(time * 1000).add(0.25, 'seconds').toDate()
+      // ]
+    },
+    mPos: function mPos(canvas, evt) {
+      var rect = canvas.getBoundingClientRect();
+      return {
+        x: evt.clientX - rect.left,
+        y: evt.clientY - rect.top
+      };
+    },
+    // Mouse Down
+    md: function md(ev, val) {
+      if (val === 1) {
+        this.isMove = true;
+      }
+
+      document.addEventListener("mousemove", this.mm);
+      document.addEventListener("mouseup", this.mu);
+      document.addEventListener("touchmove", this.tm);
+      document.addEventListener("touchend", this.mu);
+    },
+    // Mouse Up
+    mu: function mu() {
+      this.isMove = false;
+      document.removeEventListener("mousemove", this.mm);
+      document.removeEventListener("mouseup", this.mu);
+      document.removeEventListener("touchmove", this.tm);
+      document.removeEventListener("touchend", this.mu);
+    },
+    // Mouse Move
+    mm: function mm(ev) {
+      var mPos = this.mPos(this.$refs['canvas'], ev);
+
+      if (this.isMove) {
+        this.sliderY = mPos.y;
+
+        if (this.sliderY > this.sliderYMin) {
+          this.sliderY = this.sliderYMin;
+        }
+
+        if (this.sliderY < this.sliderYMax) {
+          this.sliderY = this.sliderYMax;
+        }
+      }
+    },
+    // Touch Move
+    tm: function tm(ev) {
+      var tPos = this.mPos(this.$refs['canvas'], ev.touches[0]);
+
+      if (this.isMove) {
+        this.sliderY = tPos.y;
+      }
+    }
+  },
+  created: function created() {//
+  }
+});
 
 /***/ }),
 
@@ -49381,6 +49762,278 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mergeData", function() { return a; });
 var e=function(){return(e=Object.assign||function(e){for(var t,r=1,s=arguments.length;r<s;r++)for(var a in t=arguments[r])Object.prototype.hasOwnProperty.call(t,a)&&(e[a]=t[a]);return e}).apply(this,arguments)},t={kebab:/-(\w)/g,styleProp:/:(.*)/,styleList:/;(?![^(]*\))/g};function r(e,t){return t?t.toUpperCase():""}function s(e){for(var s,a={},c=0,o=e.split(t.styleList);c<o.length;c++){var n=o[c].split(t.styleProp),i=n[0],l=n[1];(i=i.trim())&&("string"==typeof l&&(l=l.trim()),a[(s=i,s.replace(t.kebab,r))]=l)}return a}function a(){for(var t,r,a={},c=arguments.length;c--;)for(var o=0,n=Object.keys(arguments[c]);o<n.length;o++)switch(t=n[o]){case"class":case"style":case"directives":if(Array.isArray(a[t])||(a[t]=[]),"style"===t){var i=void 0;i=Array.isArray(arguments[c].style)?arguments[c].style:[arguments[c].style];for(var l=0;l<i.length;l++){var y=i[l];"string"==typeof y&&(i[l]=s(y))}arguments[c].style=i}a[t]=a[t].concat(arguments[c][t]);break;case"staticClass":if(!arguments[c][t])break;void 0===a[t]&&(a[t]=""),a[t]&&(a[t]+=" "),a[t]+=arguments[c][t].trim();break;case"on":case"nativeOn":a[t]||(a[t]={});for(var p=0,f=Object.keys(arguments[c][t]||{});p<f.length;p++)r=f[p],a[t][r]?a[t][r]=[].concat(a[t][r],arguments[c][t][r]):a[t][r]=arguments[c][t][r];break;case"attrs":case"props":case"domProps":case"scopedSlots":case"staticStyle":case"hook":case"transition":a[t]||(a[t]={}),a[t]=e({},arguments[c][t],a[t]);break;case"slot":case"key":case"ref":case"tag":case"show":case"keepAlive":default:a[t]||(a[t]=arguments[c][t])}return a}
 //# sourceMappingURL=lib.esm.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./app/assets/js/components/ReactiveChart.vue?vue&type=template&id=38262e42&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./app/assets/js/components/ReactiveChart.vue?vue&type=template&id=38262e42& ***!
+  \*****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { ref: _vm.chart.uuid, style: _vm.size })
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./app/assets/js/components/experiment/SpecificImpulse.vue?vue&type=template&id=e9ec34f8&":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./app/assets/js/components/experiment/SpecificImpulse.vue?vue&type=template&id=e9ec34f8& ***!
+  \******************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        { staticClass: "col text-center" },
+        [
+          _c(
+            "svg",
+            {
+              ref: "canvas",
+              attrs: {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: _vm.width,
+                height: "200"
+              }
+            },
+            [
+              _c("rect", {
+                attrs: {
+                  x: "10",
+                  y: _vm.sliderYMax,
+                  width: "40",
+                  height: _vm.sliderYMin - _vm.sliderYMax,
+                  fill: "#eee"
+                }
+              }),
+              _vm._v(" "),
+              _c("rect", {
+                attrs: {
+                  x: "10",
+                  y: _vm.sliderY,
+                  width: "40",
+                  height: _vm.sliderHeight,
+                  fill: "orange"
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "g",
+                {
+                  on: {
+                    mousedown: function($event) {
+                      return _vm.md($event, 1)
+                    },
+                    touchstart: function($event) {
+                      return _vm.md($event, 1)
+                    }
+                  }
+                },
+                [
+                  _c("circle", {
+                    attrs: { cx: "30", cy: _vm.sliderY, r: "6", fill: "red" }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c("g", [
+                _c(
+                  "text",
+                  {
+                    staticClass: "noselect",
+                    staticStyle: { "font-weight": "bold" },
+                    attrs: {
+                      x: "30",
+                      y: _vm.sliderYMin + 20,
+                      "dominant-baseline": "middle",
+                      "text-anchor": "middle"
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\n\t\t\t\t\t\t" +
+                        _vm._s((_vm.sliderVal * 100).toFixed()) +
+                        " %\n\t\t\t\t\t"
+                    )
+                  ]
+                )
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", [
+            _c("span", { staticStyle: { "font-size": "1.2rem" } }, [
+              _vm._v(_vm._s(_vm.totalImpulse.toFixed()) + " s")
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "b-button",
+            {
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.addData($event)
+                }
+              }
+            },
+            [_vm._v("Add data")]
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "col col-10" },
+        [
+          _c("reactive-chart", {
+            attrs: {
+              chart: _vm.chart,
+              size: { height: "300px", width: "600px" }
+            }
+          })
+        ],
+        1
+      )
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+function normalizeComponent (
+  scriptExports,
+  render,
+  staticRenderFns,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier, /* server only */
+  shadowMode /* vue-cli only */
+) {
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // render functions
+  if (render) {
+    options.render = render
+    options.staticRenderFns = staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = 'data-v-' + scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = shadowMode
+      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
+      : injectStyles
+  }
+
+  if (hook) {
+    if (options.functional) {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functioal component in vue file
+      var originalRender = options.render
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return originalRender(h, context)
+      }
+    } else {
+      // inject component registration as beforeCreate hook
+      var existing = options.beforeCreate
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    }
+  }
+
+  return {
+    exports: scriptExports,
+    options: options
+  }
+}
 
 
 /***/ }),

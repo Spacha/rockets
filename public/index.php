@@ -62,14 +62,20 @@
 						<p><b>Specific impulse</b> tells how much thrust is created per weigh unit of propellant (mass multiplied by standard gravity).</p>
 						<p class="pl-5" id="ktx-eq--eq2_3"></p>
 
-						<p>Try!</p>
-						<div id="app">
-							<b-alert variant="success" show>Success Alert</b-alert>
-							{{ message }}
+						<div id="vue-experiment--specific-impulse">
+							<b-button v-b-modal.modal-1>Experiment with I<sub>t</sub></b-button>
+
+							<b-modal id="modal-1" title="Total Impulse" size="lg">
+								<specific-impulse />
+							</b-modal>
 						</div>
 					</section>
 
 			</section>
+
+			<footer class="text-center mt-5 mb-3 text-muted">
+				by Miika Sikala
+			</footer>
 			
 		</div>
 

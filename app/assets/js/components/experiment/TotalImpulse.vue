@@ -180,7 +180,7 @@ export default {
 		},
 
 		addData: function(time, value) {
-			this.chart.layout.datarevision = new Date()
+			this.chart.layout.datarevision = time
 
 			var data = this.chart.data[0]
 			data.x.push(time)

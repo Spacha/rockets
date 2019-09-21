@@ -490,7 +490,7 @@ function _templateObject12() {
 }
 
 function _templateObject11() {
-  var data = _taggedTemplateLiteral([""]);
+  var data = _taggedTemplateLiteral(["F = dot{m}v_2 + (p_2-p_3)A_2"], ["F = \\dot{m}v_2 + (p_2-p_3)A_2"]);
 
   _templateObject11 = function _templateObject11() {
     return data;
@@ -901,7 +901,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
       this.chart.layout.xaxis.range = [0, 1];
     },
     addData: function addData(time, value) {
-      this.chart.layout.datarevision = new Date();
+      this.chart.layout.datarevision = time;
       var data = this.chart.data[0];
       data.x.push(time);
       data.y.push(value); // set autorange to true

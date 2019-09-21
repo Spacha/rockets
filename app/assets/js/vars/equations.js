@@ -19,7 +19,7 @@ export const getEquations = () => ({
 
 	"eq2_11": String.raw`\begin{aligned}\displaystyle\frac{I_t}{w_0} &= \displaystyle\frac{I_t}{(m_f+m_p)g_0} \\ &= \displaystyle\frac{I_s}{m_f/m_p + 1} \end{aligned}`,
 	"eq2_12": String.raw`F = \displaystyle \frac{d(mv_2)}{dt} = \dot{m}v_2 \text{ at sea level} = \frac{\dot{w}}{g_0}v_2`,
-	"eq2_13": String.raw``,
+	"eq2_13": String.raw`F = \dot{m}v_2 + (p_2-p_3)A_2`,
 	"eq2_14": String.raw``,
 	"eq2_15": String.raw``,
 	"eq2_16": String.raw``,

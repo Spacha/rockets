@@ -151,6 +151,11 @@
 						<p>This equation applies only when the nozzle exit pressure matches outside pressure, so we'll need to extend this a little bit by adding pressure force to the equation.</p>
 					</section>
 
+					<section class="concept">
+						<p><b>New section</b> comes here...</p>
+						<p class="pl-5 ktx-eq--eq2_13"></p>
+					</section>
+
 			</section>
 
 

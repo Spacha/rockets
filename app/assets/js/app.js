@@ -34,26 +34,6 @@ for(const eqKey of Object.keys(eqs)) {
 	}
 }
 
-// renderEq(eqs.eq2_1, eqPrefix + 'eq2_1');
-// renderEq(eqs.eq2_2, eqPrefix + 'eq2_2');
-// renderEq(eqs.eq2_3_4, eqPrefix + 'eq2_3_4');
-// // renderEq(eqs.eq2_4, eqPrefix + 'eq2_4');
-// renderEq(eqs.eq2_5, eqPrefix + 'eq2_5');
-// renderEq(eqs.eq2_6, eqPrefix + 'eq2_6');
-// renderEq(eqs.eq2_7, eqPrefix + 'eq2_7');
-// renderEq(eqs.eq2_8_9_10, eqPrefix + 'eq2_8_9_10');
-// // renderEq(eqs.eq2_9, eqPrefix + 'eq2_9');
-// // renderEq(eqs.eq2_10, eqPrefix + 'eq2_10');
-// renderEq(eqs.eq2_11_12, eqPrefix + 'eq2_11_12');
-// renderEq(eqs.eq2_13, eqPrefix + 'eq2_13');
-// renderEq(eqs.eq2_14, eqPrefix + 'eq2_14');
-// renderEq(eqs.eq2_15, eqPrefix + 'eq2_15');
-// renderEq(eqs.eq2_16, eqPrefix + 'eq2_16');
-// renderEq(eqs.eq2_17, eqPrefix + 'eq2_17');
-// renderEq(eqs.eq2_18, eqPrefix + 'eq2_18');
-// renderEq(eqs.eq2_19, eqPrefix + 'eq2_19');
-// renderEq(eqs.eq2_20, eqPrefix + 'eq2_20');
-
 
 /*******************************************
  * 					VueJS

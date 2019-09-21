@@ -28,9 +28,18 @@
 	<body>
 
 		<!-- Top Nav -->
-		<nav class="navbar navbar-dark bg-dark flex-md-nowrap p-0 shadow justify-content-center">
+		<header class="navbar navbar-dark bg-dark flex-md-nowrap p-0 shadow justify-content-center">
 			<a class="navbar-brand col-md-2 mr-0" href="#">Rockets</a>
-		</nav>
+		</header>
+		
+		<div class="nav-scroller py-1 mb-2">
+			<nav class="nav d-flex justify-content-center">
+				<a class="p-2 text-muted link-active" href="/concepts">Concepts</a>
+				<a class="p-2 text-muted" href="/rockets">Rockets</a>
+				<a class="p-2 text-muted" href="/related-theory">Related Theory</a>
+				<a class="p-2 text-muted" href="/links">Links</a>
+			</nav>
+		</div>
 
 		<div class="container">
 
@@ -149,11 +158,18 @@
 						<p>As we see from the equation, thrust tells how much vehicle's velocity changed over time t (taking vehicle's mass into account). Other way around, the heavier the vehicle, the more thrust it requires to change the velocity, let's say, 1m/s.</p>
 						<p>When we are at sea level, we usually assume that the pressure ratio (see later) is zero so that the pressure at nozzle exit equals the environment pressure. This means that all the propellant mass that goes in the engine through the injector, comes out of the other side with higher velocity. This velocity is <i>v<sub>2</sub></i> and the amount of mass injected into the engine (and ejected out of the nozzle) is <i>&#7745;</i>.</p>
 						<p>This equation applies only when the nozzle exit pressure matches outside pressure, so we'll need to extend this a little bit by adding pressure force to the equation.</p>
-					</section>
 
-					<section class="concept">
-						<p><b>New section</b> comes here...</p>
+						<p>Thrust in chemical rockets consists of two parts: <i>momentum thrust</i> and <i>pressure thrust</i>. Momentum thrust is based on newton's second and third law: if we accelerate mass to one way, we get an equally large force to opposite way. In rocket's, we accelerate light molecules through nozzle, which applies an opposing force to our nozzle which, in turn, conveys the force to the engine and the rocket body. The second part of the thrust is pressure thrust, which is usually tiny compared to momentum thrust.</p>
+						<p>As we see from the equation below, when nozzle exit pressure is smaller than outside pressure, the pressure part is negative, lowering our specific impulse. Therefore it's desirable to have the nozzle exit pressure equal or higher than the outside pressure.</p>
+						
 						<p class="pl-5 ktx-eq--eq2_13"></p>
+
+						where
+						<ul>
+							<li><i>p<sub>2</sub></i> = Pressure ar the nozzle exit plane.</li>
+							<li><i>p<sub>3</sub></i> = Outside pressure.</li>
+							<li><i>A<sub>2</sub></i> = Nozzle exit area.</li>
+						</ul>
 					</section>
 
 			</section>

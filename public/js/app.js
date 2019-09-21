@@ -156,13 +156,23 @@ for (var _i = 0, _Object$keys = Object.keys(eqs); _i < _Object$keys.length; _i++
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ReactiveChart', _components_ReactiveChart_vue__WEBPACK_IMPORTED_MODULE_5__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('TotalImpulse', _components_experiment_TotalImpulse_vue__WEBPACK_IMPORTED_MODULE_6__["default"]);
-var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
-  el: '#vue-experiment--specific-impulse'
-});
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('TotalImpulse', _components_experiment_TotalImpulse_vue__WEBPACK_IMPORTED_MODULE_6__["default"]); // TODO: try to render only if on a page that has the component
+
+var vueApps = [{
+  'el': 'vue-experiment--specific-impulse'
+}];
+
+for (var i = 0; i < vueApps.length; i++) {
+  var elem = document.querySelector('#' + vueApps[i].el);
+  if (!elem) continue;
+  new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
+    el: '#' + vueApps[i].el
+  });
+}
 /*******************************************
  * 								Graphs
  ******************************************/
+
 
 var Isp_integral = {
   type: 'scatter',
@@ -221,7 +231,18 @@ var config = {
   responsive: true,
   displaylogo: false
 };
-Plotly.newPlot('myDiv', data, layout, config);
+var plots = [{
+  'el': 'myDiv',
+  'data': data,
+  'layout': layout,
+  'config': config
+}];
+
+for (var i = 0; i < plots.length; i++) {
+  var elem = document.querySelector('#' + plots[i].el);
+  if (!elem) continue;
+  Plotly.newPlot(plots[i].el, plots[i].data, plots[i].layout, plots[i].config);
+}
 
 /***/ }),
 
@@ -400,8 +421,58 @@ var renderEq = function renderEq(eq, element) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getEquations", function() { return getEquations; });
+function _templateObject23() {
+  var data = _taggedTemplateLiteral(["(I_s)_{oa} = F_{oa}/(g_0dot{m}_{oa})"], ["(I_s)_{oa} = F_{oa}/(g_0\\dot{m}_{oa})"]);
+
+  _templateObject23 = function _templateObject23() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject22() {
+  var data = _taggedTemplateLiteral(["dot{m}_{oa} = sum dot{m} = dot{m}_1 + dot{m}_2 + dot{m}_3 + ..."], ["\\dot{m}_{oa} = \\sum \\dot{m} = \\dot{m}_1 + \\dot{m}_2 + \\dot{m}_3 + ..."]);
+
+  _templateObject22 = function _templateObject22() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject21() {
+  var data = _taggedTemplateLiteral(["F_{oa} = sum F = F_1 + F_2 + F_3 + ..."], ["F_{oa} = \\sum F = F_1 + F_2 + F_3 + ..."]);
+
+  _templateObject21 = function _templateObject21() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject20() {
+  var data = _taggedTemplateLiteral(["\n\t\begin{aligned}\n\t\tdisplaystyle eta_p &= \frac{\text{vehicle power}}{\text{vehicle power} + \text{residual kinetic jet energy}} \\\n\t\t&= displaystyle \frac{Fu}{Fu + \frac{1}{2}dot{m}(c - u)^2} = \frac{2u/c}{1 + (u/c)^2}\n\tend{aligned}"], ["\n\t\\begin{aligned}\n\t\t\\displaystyle \\eta_p &= \\frac{\\text{vehicle power}}{\\text{vehicle power} + \\text{residual kinetic jet energy}} \\\\\n\t\t&= \\displaystyle \\frac{Fu}{Fu + \\frac{1}{2}\\dot{m}(c - u)^2} = \\frac{2u/c}{1 + (u/c)^2}\n\t\\end{aligned}"]);
+
+  _templateObject20 = function _templateObject20() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject19() {
+  var data = _taggedTemplateLiteral(["eta_{int} = displaystyle \frac{\text{kinetic power in jet}}{\text{available chemical power}} = displaystyle \frac{\frac{1}{2}dot{m}v^2}{eta_{comb}P_{chem}}"], ["\\eta_{int} = \\displaystyle \\frac{\\text{kinetic power in jet}}{\\text{available chemical power}} = \\displaystyle \\frac{\\frac{1}{2}\\dot{m}v^2}{\\eta_{comb}P_{chem}}"]);
+
+  _templateObject19 = function _templateObject19() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject18() {
-  var data = _taggedTemplateLiteral([""]);
+  var data = _taggedTemplateLiteral(["P_{vehicle} = Fu"]);
 
   _templateObject18 = function _templateObject18() {
     return data;
@@ -411,7 +482,7 @@ function _templateObject18() {
 }
 
 function _templateObject17() {
-  var data = _taggedTemplateLiteral([""]);
+  var data = _taggedTemplateLiteral(["P_{chem} = dot{m}Q_RJ"], ["P_{chem} = \\dot{m}Q_RJ"]);
 
   _templateObject17 = function _templateObject17() {
     return data;
@@ -421,7 +492,7 @@ function _templateObject17() {
 }
 
 function _templateObject16() {
-  var data = _taggedTemplateLiteral([""]);
+  var data = _taggedTemplateLiteral(["P_{jet} = \frac{1}{2}dot{m}v_2^2 = \frac{1}{2}dot{w}g_0I_s^2 = \frac{1}{2}Fg_0I_s = \frac{1}{2}Fv_2"], ["P_{jet} = \\frac{1}{2}\\dot{m}v_2^2 = \\frac{1}{2}\\dot{w}g_0I_s^2 = \\frac{1}{2}Fg_0I_s = \\frac{1}{2}Fv_2"]);
 
   _templateObject16 = function _templateObject16() {
     return data;
@@ -431,7 +502,7 @@ function _templateObject16() {
 }
 
 function _templateObject15() {
-  var data = _taggedTemplateLiteral([""]);
+  var data = _taggedTemplateLiteral(["c^* = p_1A_t/dot{m}"], ["c^* = p_1A_t/\\dot{m}"]);
 
   _templateObject15 = function _templateObject15() {
     return data;
@@ -441,7 +512,7 @@ function _templateObject15() {
 }
 
 function _templateObject14() {
-  var data = _taggedTemplateLiteral([""]);
+  var data = _taggedTemplateLiteral(["F = (dot{w}/g_0)v_2 = dot{m}c"], ["F = (\\dot{w}/g_0)v_2 = \\dot{m}c"]);
 
   _templateObject14 = function _templateObject14() {
     return data;
@@ -491,7 +562,7 @@ function _templateObject10() {
 }
 
 function _templateObject9() {
-  var data = _taggedTemplateLiteral(["\begin{aligned}displaystyle\frac{I_t}{w_0} &= displaystyle\frac{I_t}{(m_f+m_p)g_0} \\ &= displaystyle\frac{I_s}{m_f/m_p + 1} end{aligned}"], ["\\begin{aligned}\\displaystyle\\frac{I_t}{w_0} &= \\displaystyle\\frac{I_t}{(m_f+m_p)g_0} \\\\ &= \\displaystyle\\frac{I_s}{m_f/m_p + 1} \\end{aligned}"]);
+  var data = _taggedTemplateLiteral(["\n\t\begin{aligned}\n\t\tdisplaystyle\frac{I_t}{w_0} &= displaystyle\frac{I_t}{(m_f+m_p)g_0} \\ &= displaystyle\frac{I_s}{m_f/m_p + 1}\n\tend{aligned}"], ["\n\t\\begin{aligned}\n\t\t\\displaystyle\\frac{I_t}{w_0} &= \\displaystyle\\frac{I_t}{(m_f+m_p)g_0} \\\\ &= \\displaystyle\\frac{I_s}{m_f/m_p + 1}\n\t\\end{aligned}"]);
 
   _templateObject9 = function _templateObject9() {
     return data;
@@ -602,7 +673,12 @@ var getEquations = function getEquations() {
     "eq2_17": String.raw(_templateObject15()),
     "eq2_18": String.raw(_templateObject16()),
     "eq2_19": String.raw(_templateObject17()),
-    "eq2_20": String.raw(_templateObject18())
+    "eq2_20": String.raw(_templateObject18()),
+    "eq2_21": String.raw(_templateObject19()),
+    "eq2_22": String.raw(_templateObject20()),
+    "eq2_23": String.raw(_templateObject21()),
+    "eq2_24": String.raw(_templateObject22()),
+    "eq2_25": String.raw(_templateObject23())
   };
 };
 

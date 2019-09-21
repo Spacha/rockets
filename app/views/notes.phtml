@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="author" content="Miika Sikala">
+		<link rel="icon" type="image/jpeg" href="/favicon.jpg" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+		<!-- Styles -->
+		<link rel="stylesheet" href="<?=assetVersion('/css/app.css');?>">
+
+		<title>Rockets</title>
+
+		<!-- TODO: use webpack! -->
+		<script src="/js/plotly.min.js"></script>
+	</head>
+	<body>
+
+		<!-- Top Nav -->
+		<header class="navbar navbar-dark bg-dark flex-md-nowrap p-0 shadow justify-content-center">
+			<a class="navbar-brand col-md-2 mr-0" href="#">Rockets</a>
+		</header>
+		
+		<div class="nav-scroller py-1 mb-2">
+			<nav class="nav d-flex justify-content-center">
+				<a class="p-2 text-muted" href="/concepts">Concepts</a>
+				<a class="p-2 text-muted" href="/rockets">Rockets</a>
+				<a class="p-2 text-muted" href="/related-theory">Related Theory</a>
+				<a class="p-2 text-muted" href="/links">Links</a>
+			</nav>
+		</div>
+
+		<div class="container">
+
+			<section class="mt-5">
+				<h2>My Notes</h2>
+
+				<p>I collect my notes and crazy ideas about this site here...</p>
+
+				<h3>Things to show</h3>
+				<ul>
+					<li>Derivation of equations</li>
+					<li>Minigames that visualize hard-to-understand or complex concepts</li>
+					<li>Interactive graphs (i.e. change k-values and see how it affects I<sub>s</sub>)</li>
+					<li>Catch-ups/references of main ideas/terms</li>
+					<li>Connection to real-world solutions: "<i>Saturn V</i> had that amount of thrust in 1st stage", "This, this and this engine use this propellant", ...</li>
+				</ul>
+
+				<h3>Other</h3>
+				<ul>
+					<li>When hovering an equation (anywhere), show short description and what each variable/constant means, also links to related pages.</li>
+					<li>Own page for each concept with thorough examples, graphs, illustrations and minigames...
+				</ul>
+
+			</section>
+
+		</div>
+
+			<footer class="text-center mt-5 mb-3 text-muted">
+				by Miika Sikala
+			</footer>
+
+		<!-- Scripts that load after DOM -->
+		<script src="/js/app.js"></script>
+	</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="author" content="Miika Sikala">
+		<link rel="icon" type="image/jpeg" href="/favicon.jpg" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+		<!-- Styles -->
+		<link rel="stylesheet" href="<?=assetVersion('/css/app.css');?>">
+
+		<title>Rockets</title>
+
+		<!-- TODO: use webpack! -->
+		<script src="/js/plotly.min.js"></script>
+	</head>
+	<body>
+
+		<!-- Top Nav -->
+		<header class="navbar navbar-dark bg-dark flex-md-nowrap p-0 shadow justify-content-center">
+			<a class="navbar-brand col-md-2 mr-0" href="#">Rockets</a>
+		</header>
+		
+		<div class="nav-scroller py-1 mb-2">
+			<nav class="nav d-flex justify-content-center">
+				<a class="p-2 text-muted link-active" href="/concepts">Concepts</a>
+				<a class="p-2 text-muted" href="/rockets">Rockets</a>
+				<a class="p-2 text-muted" href="/related-theory">Related Theory</a>
+				<a class="p-2 text-muted" href="/links">Links</a>
+			</nav>
+		</div>
+
+		<div class="container">
+
+			<section class="mt-5">
+
+				<div class="table-responsive">
+					<table class="table" style="font-size: 0.8rem;">
+						<thead>
+							<tr>
+								<th>Parameter</th><th>Equation</th><th>Description</th>
+							</tr>
+						</thead>
+						<tbody>
+
+							<tr>
+								<td>Total impulse</td>
+								<td>
+									<p class="eq-small ktx-eq--eq2_1"></p>
+									<p class="eq-small ktx-eq--eq2_2"></p>
+								</td>
+								<td>Tells the amount of force put to accelerating the vehicle over time. If thrust is constant, the second equation is applicable.</td>
+							</tr>
+
+							<tr>
+								<td>Specific impulse</td>
+								<td>
+									<p class="eq-small ktx-eq--eq2_3_4"></p>
+									<p class="eq-small ktx-eq--eq2_5"></p>
+								</td>
+								<td>Tells how efficient a propulsion system is or <i>"how much one kg of propellant give thrust?"</i> If thrust is nearly constant over time, the second equation is applicable.</td>
+							</tr>
+
+							<tr>
+								<td>Effective echaust velocity</td>
+								<td><p class="eq-small ktx-eq--eq2_6"></p></td>
+								<td>Tells about efficiency just like <i>I<sub>s</sub></i>; how fast the exhaust gas comes out of the nozzle <i>on average and ideally</i>.</td>
+							</tr>
+
+							<tr>
+								<td>Mass ratio</td>
+								<td><p class="eq-small ktx-eq--eq2_7"></p></td>
+								<td>Tells how much lighter a vehicle is after operation compared to before operation. Larger <i>MR</i> means that the vehicle has more inert mass.</td>
+							</tr>
+
+							<tr>
+								<td>Propellant mass fraction</td>
+								<td><p class="eq-small ktx-eq--eq2_8_9_10"></p></td>
+								<td>Tells how much of the vehicle's mass consists of propellant. Large &zeta; &rarr; lots of propellant, light structure.</td>
+							</tr>
+
+							<tr>
+								<td><b>Thrust</b></td>
+								<td>
+									<p class="eq-small ktx-eq--eq2_12"></p>
+									<p class="eq-small ktx-eq--eq2_13"></p>
+									<p class="eq-small ktx-eq--eq2_16"></p>
+								</td>
+								<td>Amount of force an engine is producing at given moment or on average. The bottommost version can be applied when <i>v<sub>2</sub></i> = <i>c</i>.</td>
+							</tr>
+
+							<tr>
+								<td>Charasteristic velocity</td>
+								<td>
+									<p class="eq-small ktx-eq--eq2_17"></p>
+								</td>
+								<td>Tells about efficiency of an engine's combustion process since nozzle design does not affect it (see <i>effective exhaust velocity</i>).</td>
+							</tr>
+
+							<tr>
+								<td>Power of a jet</td>
+								<td>
+									<p class="eq-small ktx-eq--eq2_18"></p>
+								</td>
+								<td>Tells the power (how much energy per time unit) of an engine's exhaust jet.</td>
+							</tr>
+
+							<tr>
+								<td>Power input to a chemical engine</td>
+								<td>
+									<p class="eq-small ktx-eq--eq2_19"></p>
+								</td>
+								<td>Tells how much power is "injected" into the chemical rocket engine (in form of propellants).</td>
+							</tr>
+
+							<tr>
+								<td>Power transmitted to a vehicle</td>
+								<td>
+									<p class="eq-small ktx-eq--eq2_20"></p>
+								</td>
+								<td>Tells how much power is transmitted to the vehicle at an instant time.</td>
+							</tr>
+
+							<tr>
+								<td>Internal efficiency</td>
+								<td>
+									<p class="eq-small ktx-eq--eq2_21"></p>
+								</td>
+								<td>Tells how efficiently an engine converts chemical energy into kinetic energy of exhaust gas.</td>
+							</tr>
+
+							<tr>
+								<td>Propulsive efficiency</td>
+								<td>
+									<p class="eq-small ktx-eq--eq2_22"></p>
+								</td>
+								<td>Tells how much of the kinetic energy of the exhaust jet is converted into thrust, as vehicle is moving in an athmosphere.</td>
+							</tr>
+
+							<tr>
+								<td>Overall values</td>
+								<td>
+									<p class="eq-small ktx-eq--eq2_23"></p>
+									<p class="eq-small ktx-eq--eq2_24"></p>
+									<p class="eq-small ktx-eq--eq2_25"></p>
+								</td>
+								<td>Total thrust, mass flow rate and specific impulse of a system that consists of multiple engines/thrust producers.</td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+			</section>
+
+		</div>
+
+			<footer class="text-center mt-5 mb-3 text-muted">
+				by Miika Sikala
+			</footer>
+
+		<!-- Scripts that load after DOM -->
+		<script src="/js/app.js"></script>
+	</body>
+</html>

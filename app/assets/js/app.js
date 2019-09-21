@@ -45,9 +45,21 @@ import TotalImpulse from './components/experiment/TotalImpulse.vue'
 Vue.component('ReactiveChart', ReactiveChart)
 Vue.component('TotalImpulse', TotalImpulse)
 
-var app = new Vue({
-	el: '#vue-experiment--specific-impulse'
-})
+// TODO: try to render only if on a page that has the component
+var vueApps = [
+	{
+		'el': 'vue-experiment--specific-impulse'
+	}
+]
+
+for (var i = 0; i < vueApps.length; i++) {
+	var elem = document.querySelector('#' + vueApps[i].el)
+	if (!elem) continue
+
+	new Vue({
+		el: '#' + vueApps[i].el
+	})
+}
 
 
 /*******************************************
@@ -95,4 +107,18 @@ var config = {
 	displaylogo: false
 }
 
-Plotly.newPlot('myDiv', data, layout, config);
+var plots = [
+	{
+		'el': 'myDiv',
+		'data': data,
+		'layout': layout,
+		'config': config
+	}
+]
+
+for (var i = 0; i < plots.length; i++) {
+	var elem = document.querySelector('#' + plots[i].el)
+	if (!elem) continue
+
+	Plotly.newPlot(plots[i].el, plots[i].data, plots[i].layout, plots[i].config)
+}

@@ -2,6 +2,8 @@
 
 namespace Spacha\Rockets\Libs;
 
+use Spacha\Rockets\Controller;
+
 /**
  * Takes are of matching the current route to a controller.
  * 
@@ -9,11 +11,11 @@ namespace Spacha\Rockets\Libs;
  */
 class Router
 {
-	protected $viewsDir;
+	protected $controller;
 
 	public function __construct()
 	{
-		$this->viewsDir = ROOT_PATH . '/app/views';
+		$this->controller = new Controller();
 	}
 
 	/**
@@ -28,31 +30,31 @@ class Router
 		// Routing Table
 		switch ($url) {
 			case '/':
-				$this->renderView('home.phtml');
+				$this->controller->index();
 				break;
 
 			case 'concepts':
-				$this->renderView('concepts/concepts.phtml');
+				$this->controller->concepts();
 				break;
 
 			case 'concepts/equations':
-				$this->renderView('concepts/equations.phtml');
+				$this->controller->conceptsEquations();
 				break;		
 
 			case 'rockets':
-				$this->renderView('rockets.phtml');
+				$this->controller->rockets();
 				break;
 
 			case 'related-theory':
-				$this->renderView('related-theory.phtml');
+				$this->controller->relatedTheory();
 				break;
 
 			case 'links':
-				$this->renderView('links.phtml');
+				$this->controller->links();
 				break;
 
 			case 'notes':
-				$this->renderView('notes.phtml');
+				$this->controller->notes();
 				break;	
 
 			default:
@@ -71,24 +73,5 @@ class Router
 	public function pageNotFound()
 	{
 		$this->renderView('_errors/404.phtml');
-	}
-
-	/**
-	  * Renders given html template to the browser and stops the application.
-	  *
-	  * @param string $view
-	  * @return string
-	  */
-	protected function renderView(string $view)
-	{
-		$fullPath = $this->viewsDir .'/'. $view;
-
-		// template file not found, no can do...
-		if (!file_exists($fullPath)) {
-			die("Error! Template {$fullPath} not found!");
-		}
-
-		// let's just die...
-		die(require($fullPath));
 	}
 }
